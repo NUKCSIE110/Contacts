@@ -1,0 +1,12 @@
+{
+  "name": "Contacts",
+  "version": "1.0.0",
+  "description": "NUKCSIE Contact book",
+  "main": "index.js",
+  "repository": "https://github.com/NUKCSIE110/Contacts.git",
+  "author": "han880805 <han880805@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
