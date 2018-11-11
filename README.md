@@ -8,5 +8,8 @@
 ### ifTNT
 * nothing
 
+### Reference
+https://segmentfault.com/a/1190000006939687
+
 ## 授權許可
 本專案採用MIT Licence，對本專案要殺要剮都沒關係，只要附上專案來源就可以了。
