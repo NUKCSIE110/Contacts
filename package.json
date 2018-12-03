@@ -2,7 +2,7 @@
   "name": "Contacts",
   "version": "1.0.0",
   "description": "NUKCSIE Contact book",
-  "main": "index.js",
+  "main": "app.js",
   "repository": "https://github.com/NUKCSIE110/Contacts.git",
   "author": "han880805 <han880805@gmail.com>",
   "license": "MIT",
