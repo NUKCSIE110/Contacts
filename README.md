@@ -3,22 +3,18 @@
 所以我們決定作出一個新的通訊錄，不管姓名、電話、住址、Email，或是任何你想得到的通訊方式，都能記錄在這個通訊錄上，不管你以後是要做安麗、發喜帖抑或是前往討債，都能有一個可以聯絡到對方的方式。
 
 ## TODOs
-### Overall
-* OAuth
-* Location
-* FB近況
-* Comment
-* Event holder
-* 祖譜
-* 二手市集
 ### Kix
-* nothing
+* 資料 (/profile/$)
+* OAuth (/login)
 ### ifTNT
-* nothing
+* Location (/profile/$#location)
+* 祖譜 (/tree)
 ### Arpan
-* nothing
+* 二手市集 (/market)
+* Event holder (/event)
 ### Shopping
-* nothing
+* FB近況 (/profile/$#fb)
+* Comment (/profile/$#comment)
 
 ### Reference
 https://segmentfault.com/a/1190000006939687
