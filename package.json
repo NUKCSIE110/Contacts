@@ -1,18 +1,16 @@
 {
   "name": "contacts",
-  "version": "1.0.0",
-  "description": "NUKCSIE Contact book",
-  "main": "app.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "start": "node app.js"
-  },
-  "repository": "https://github.com/NUKCSIE110/Contacts.git",
-  "author": "han880805 <han880805@gmail.com>",
-  "license": "MIT",
-  "engines": {
-    "node" : "^8.0.0"
+    "start": "node ./bin/www"
   },
   "dependencies": {
-    "express": "^4.16.4"
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0"
   }
 }
