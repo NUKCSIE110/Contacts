@@ -1,6 +1,6 @@
 var express = require('express')
 var app = express()
-var port = process.argv.port || 80
+var port = process.env.PORT || 80
 
 app.get('/', (req,res)=>{
     res.send('Hello world')
