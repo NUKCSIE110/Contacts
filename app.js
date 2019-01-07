@@ -3,7 +3,6 @@ var express = require('express');
 var Session = require('express-session')
 var google = require('googleapis')
 var oauth2 = google.oauth2_v2.Oauth2
-var secret = require('./secret.json')
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -12,6 +11,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var app = express();
 
+const clientid = process.env.clientid
+const clientsecret = process.env.clientsecret
 const redirection = 'http://localhost/login'
 
 // view engine setup
