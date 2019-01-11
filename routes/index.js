@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var Session = require('express-session')
-var {google} = require('googleapis')
+var {
+  google
+} = require('googleapis')
 var plus = google.plus('v1');
 var oauth2 = google.auth.OAuth2
 
@@ -82,5 +84,11 @@ router.get("/details", function (req, res) {
     res.send(`message get failed!`)
   })
 });
+
+router.get("/event", (req, res) => {
+  res.render('event', {
+    title: '高大資工系友交流平臺'
+  })
+})
 
 module.exports = router;
