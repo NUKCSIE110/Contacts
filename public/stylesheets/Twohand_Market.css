@@ -111,7 +111,13 @@ nav div div {
 .sort select{
     margin-left: 20px;
     margin-right: 20px;
-    font-size: 25px;
     font-family: 'SF Pro Display';
-    
+    font-size: 30px;
+    background:rgba(90, 90, 90, 0);
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border-width: 5px;
+    border-style: bold;
+    border-color: rgba(90, 90, 90, 0.2);
 }
