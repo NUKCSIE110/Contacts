@@ -6,11 +6,22 @@ var {
 } = require('googleapis')
 var plus = google.plus('v1');
 var oauth2 = google.auth.OAuth2
-
+var firebase = require('firebase')
+var config = {
+  apiKey: "AIzaSyCLvoOA69zFKFw-pxsU8_5LfuArDAyzwSY",
+  authDomain: "nuk-contacts.firebaseapp.com",
+  databaseURL: "https://nuk-contacts.firebaseio.com",
+  projectId: "nuk-contacts",
+  storageBucket: "nuk-contacts.appspot.com",
+  messagingSenderId: "432628078259"
+};
 const clientid = process.env.clientid
 const clientsecret = process.env.clientsecret
 const redirection = 'http://localhost/loginCallback'
+firebase.initializeApp(config);
 console.log(clientid, clientsecret)
+var db = firebase.database();
+var ref = db.ref("/");
 
 router.use(Session({
   secret: '803b49765bbd574d2ee22f70b565dd661daafc5e',
@@ -34,12 +45,13 @@ function getAuthurl() {
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', {
-    title: '高大資工系友交流平臺'
-  });
+  if (req.session['email'] === undefined) res.redirect(302, '/login')
+  else res.redirect(302, '/profile')
+  res.send()
 });
 
 router.get('/login', function (req, res, next) {
+  console.log(req.session["email"])
   res.render('login', {
     title: '登入 - 高大資工系友交流平臺',
     authUrl: getAuthurl()
@@ -51,43 +63,59 @@ router.get('/loginCallback', function (req, res, next) {
   var session = req.session;
   var oauth2Client = getOAuthClient();
   oauth2Client.getToken(code, function (err, tokens) {
-    // tokens包含一个access_token和一个可选的refresh_token
     if (!err) {
       oauth2Client.setCredentials(tokens);
-      session["tokens"] = tokens;
-      res.send(`<h3>Login successful!</h3><a href="/details">Go to details page</a>`)
-    } else {
-      res.send(`<h3>Login failed!!</h3>`)
+      new Promise(function (resolve, reject) {
+        plus.people.get({
+          userId: 'me',
+          fields: 'emails',
+          auth: oauth2Client
+        }, function (err, response) {
+          if (!err) {
+            resolve(response)
+          } else {
+            reject(err)
+          }
+        });
+      }).then(function (data) {
+        let email = data.data.emails[0].value
+        if (email.slice(4, 6) == '55' && email.split('@')[1] == 'mail.nuk.edu.tw') {
+          session["stuid"] = email.split('@')[0];
+          res.render('loginCallback', {
+            title: '登入成功 - 高大資工系友交流平臺',
+            href: 'profile',
+            status: 'success',
+            message: '登入成功，5秒後導向至首頁。'
+          })
+        } else throw new Error('wrong email')
+      }).catch(function (err) {
+        console.log(err)
+        res.render('loginCallback', {
+          title: '登入失敗 - 高大資工系友交流平臺',
+          href: 'login',
+          status: 'danger',
+          message: '登入失敗，請確認是否爲高大G Suite帳號，5秒後導向至登入頁面。'
+        })
+      })
     }
   });
 });
 
-router.get("/details", function (req, res) {
-  var oauth2Client = getOAuthClient();
-  oauth2Client.setCredentials(req.session["tokens"]);
-  new Promise(function (resolve, reject) {
-    plus.people.get({
-      userId: 'me',
-      fields: 'emails',
-      auth: oauth2Client
-    }, function (err, response) {
-      if (!err) {
-        resolve(response)
-      } else {
-        reject(err)
-      }
-    });
-  }).then(function (data) {
-    res.send(`<h3>email ${data.data.emails[0].value}</h3>`);
-  }).catch(function (err) {
-    console.log(err)
-    res.send(`message get failed!`)
-  })
-});
+router.get('/profile', (req,res,next)=>{
+  if (req.session['stuid']!=undefined) res.render('profile',{
+    title: '資料 - 高大資工系友交流平臺',
+    stuid:req.session['stuid']
+  }) 
+  else{
+    res.redirect(302,'/login')
+    res.send()
+  }
+})
 
 router.get("/event", (req, res) => {
   res.render('event', {
-    title: '高大資工系友交流平臺'
+    title: '高大資工系友交流平臺',
+    stuid:req.session['stuid']
   })
 })
 
