@@ -1,0 +1,129 @@
+body {
+    background: linear-gradient(rgba(0, 0, 0, .32), rgba(0, 0, 0, .32)), url('/images/cb-colour-nightsky.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    overflow-x: hidden;
+    margin:0px;
+}
+nav{
+    margin: 10px 10px 20px 10px;
+    justify-content: space-between;
+    display: flex;
+}
+nav div div {
+    display:inline-block;
+    padding: 20px;
+    font-family: 'SF Pro Display';
+    color:white;
+    font-size: 35px;
+}
+.folder{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    height: 70vh;
+    margin : 0 5%;
+    border-radius: 40px;
+    background-color: rgba(90, 90, 90, 0.75);
+    /* border-color:#aaaaee;
+    border-width:3px;border-style:solid;
+    padding:5px; */
+}
+.select{
+    margin: 0 5%;
+    font-family: 'Ink Free';
+    color: white;
+    font-size: 29px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 80px;
+}
+.select div{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-left: 20px;
+    margin-right:20px; 
+    background-color:rgba(90, 90, 90, 0.75); 
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.logo{
+    width: 25%;
+    height: 25%;
+}
+.photo div{
+    margin-left:200px;
+    margin-right:100px;
+    margin-top:50px;
+    font-family: 'SF Pro Display';
+    color: white;
+}
+.UP_Button{ 
+    height: 35px;
+    width: 120px;
+    font-size: 30px;
+    text-align: center;
+    border-color:#aaaaee;
+    border-width:2px;
+    border-style:solid;
+    cursor: pointer;
+}
+.UP_photo{
+    width: 300px;
+    height: 300px;
+    margin: 30px;
+    background:rgba(90, 90, 90, 0);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #aaaaee;
+}
+.spec{
+    margin-left:100px;
+    margin-right:150px;
+    margin-top: 50px;
+    
+}
+.spec div{
+    font-size: 30px;
+    font-family: 'SF Pro Display';
+    color: white;
+}
+.spec input{
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background:rgba(90, 90, 90, 0);
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border-width: 5px;
+    border-style: bold;
+    border-color: rgba(90, 90, 90, 0.2);
+}
+.spec select{
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background:rgba(90, 90, 90, 0);
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border-width: 5px;
+    border-style: bold;
+    border-color: rgba(90, 90, 90, 0.2);
+}
+.Upload{
+    position: absolute;
+    bottom: 36px;
+    right: 50px;
+    width: 80px;
+    height: 35px; 
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    border-color:#aaaaee;
+    border-width:2px;
+    border-style:solid;
+    cursor: pointer;
+}

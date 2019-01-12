@@ -1,0 +1,87 @@
+body {
+    background: linear-gradient(rgba(0, 0, 0, .32), rgba(0, 0, 0, .32)), url('/images/cb-colour-nightsky.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    overflow-x: hidden;
+    margin:0px;
+}
+nav{
+    margin: 10px 10px 20px 10px;
+    justify-content: space-between;
+    display: flex;
+}
+nav div div {
+    display:inline-block;
+    padding: 20px;
+    font-family: 'SF Pro Display';
+    color:white;
+    font-size: 35px;
+}
+.folder{
+    width: 95vw;
+    height: 79vh;
+    position: absolute;
+    left: 40px;
+    border-radius:40px 0px 40px 40px;
+    background-color:rgb(90, 90, 90,.75);
+    
+    /* border-color:#aaaaee;
+    border-width:3px;border-style:solid;
+    padding:5px; */
+}
+.select{
+    margin-top:25px; 
+    color: white;
+    font-size: 25px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 17px;
+}
+.select div{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-left: 20px;
+    margin-right:20px; 
+    background-color:rgba(90, 90, 90, 0.75); 
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+
+}
+.logo{
+    width: 25%;
+    height: 25%;
+}
+.box{
+    margin-left:100px;
+    margin-right:100px;
+    margin-top:20px;
+    display: flex;
+    justify-content: space-between;
+}
+.box div{
+    position: relative;
+    width: 12vw;
+    height: 30vh;
+    background-color: rgba(90, 90, 90, 0.75);
+    margin: 20px;
+    border-color:#aaaaee;
+    border-width:1px;
+    border-style:solid;
+    margin: 20px;
+}
+.box div div{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 20px;
+    height: 20px;
+    font-family: 'SF Pro Display';
+    color: white;
+    text-align: center;
+    border-color:#aaaaee;
+    border-width:1px;
+    border-style:solid;
+    margin: 0px;
+}
