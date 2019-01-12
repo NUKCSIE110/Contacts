@@ -95,5 +95,15 @@ router.get("/Twohand_Market", (req, res) => {
     title: '高大資工系友交流平臺'
   })
 })
+router.get("/Twohand_Down", (req, res) => {
+  res.render('Twohand_Down', {
+    title: '高大資工系友交流平臺'
+  })
+})
+router.get("/Twohand_Up", (req, res) => {
+  res.render('Twohand_Up', {
+    title: '高大資工系友交流平臺'
+  })
+})
 
 module.exports = router;
