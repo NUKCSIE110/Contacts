@@ -103,10 +103,15 @@ nav div div {
     color: white;
     font-family:'SF Pro Display';
     font-size: 25px;
+    padding: 5px;
+    border-color:#aaaaee;
+    border-width:2px;
+    border-style:solid;
 }
 .sort select{
     margin-left: 20px;
     margin-right: 20px;
     font-size: 25px;
     font-family: 'SF Pro Display';
+    
 }
