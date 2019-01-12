@@ -1,11 +1,10 @@
 body {
-    background: linear-gradient(rgba(0, 0, 0, .32), rgba(0, 0, 0, .32)), url('cb-colour-nightsky.jpg');
+    font-family: 'Microsoft JhengHei','SF Pro Display';
+    background: linear-gradient(rgba(0, 0, 0, .32), rgba(0, 0, 0, .32)), url('/images/cb-colour-nightsky.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     overflow-x: hidden;
-    font-family: 'Microsoft JhengHei','SF Pro Display';
-    /* background-image:linear-gradient(rgba(0, 0, 0, 0.32),  rgba(0, 0, 0, 0.32)),url("cb-colour-nightsky.jpg"); */
     margin:0px;
 }
 .Username {
@@ -18,6 +17,20 @@ body {
     font-size: 28px;
     color:white;
 }
+
+nav{
+    margin: 10px 10px 20px 10px;
+    justify-content: space-between;
+    display: flex;
+}
+nav div div {
+    display:inline-block;
+    padding: 20px;
+    font-family: 'SF Pro Display';
+    color:white;
+    font-size: 35px;
+}
+
 .folder{
     width: 95vw;
     height: 79vh;
@@ -39,9 +52,7 @@ body {
     color: white;
     font-size: 25px;
     display: flex;
-    justify-content: flex-end;
-    padding-right: 17px;
-    
+    justify-content: flex-end;  
 }
 
 .select div{
@@ -54,51 +65,48 @@ body {
     padding-right: 10px;
     padding-top: 10px;
 }
-/*.Information{
-    border-radius:10px 10px 0px 0px;
-    margin-right:20px; 
-    background-color:rgb(112, 112, 112,.50);
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-}*/
-/*.Zuopu{
-    border-radius:10px 10px 0px 0px;
-    /*margin-left: 20px;*/
-   /* margin-right:20px; 
-    background-color:rgb(112, 112, 112,.50);
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-}*/
-/*.Meet{
-    border-radius:10px 10px 0px 0px;
-    /*margin-left: 20px;*/
-   /* margin-right:20px; 
-    background-color:rgb(112, 112, 112,.50);
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-}*/
-/*.Twohand{
-    border-radius:10px 10px 0px 0px;
-    /*margin-left: 20px;*/
-    /*margin-right:20px; 
-    background-color:rgb(112, 112, 112,.50);
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-}*/
+
+.folder .wrap{
+    display: flex;
+}
+
+.folder .event{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left:40px;
+    margin-top:383px;
+}
+
+
+.folder .attempt{
+    font-size: 25px;
+    margin: 10px;
+    display: block;
+    color:white;
+    border:5px solid #707070;
+    padding:10px;
+}
+
+.folder .build{
+    font-size: 25px;
+    margin: 10px;
+    display: block;
+    color:white;
+    border:5px solid #707070;
+    padding:10px;
+}
+
 .logo{
-    position: absolute;
-    left: 0%;
+    width:25%;
+    height:25%;
 }
 
 .calendar{
     margin-top: 35px;
-    margin-left: 20px;
-    border-radius: 20px;
+    margin-left: 35px;
 }
+
 /* .empty{
     padding: 5px;
 } */

@@ -86,7 +86,7 @@ router.get("/details", function (req, res) {
 });
 
 router.get("/event", (req, res) => {
-  res.render('event', {
+  res.render('eventShopping', {
     title: '高大資工系友交流平臺'
   })
 })
