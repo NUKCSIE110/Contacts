@@ -60,11 +60,11 @@ nav div div {
     color: white;
 }
 .UP_Button{ 
-    height: 35px;
-    width: 120px;
+    /* height: 35px;
+    width: 120px; */
     font-size: 30px;
     text-align: center;
-    border-color:#aaaaee;
+    border-color: rgba(112 , 112, 112);;
     border-width:2px;
     border-style:solid;
     cursor: pointer;
@@ -76,7 +76,7 @@ nav div div {
     background:rgba(90, 90, 90, 0);
     border-width: 5px;
     border-style: solid;
-    border-color: #aaaaee;
+    border-color: rgba(112 , 112, 112);;
 }
 .spec{
     margin-left:100px;
@@ -101,17 +101,27 @@ nav div div {
     border-style: bold;
     border-color: rgba(90, 90, 90, 0.2);
 }
-.spec select{
+.spec textarea{
     font-size: 30px;
     margin-top: 10px;
     margin-bottom: 10px;
     background:rgba(90, 90, 90, 0);
     cursor:pointer;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
     border-width: 5px;
     border-style: bold;
-    border-color: rgba(90, 90, 90, 0.2);
+    border-color: rgba(112 , 112, 112);
+}
+.spec select{
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background:white;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: bold;
+    border-color: white;
 }
 .Upload{
     position: absolute;
@@ -122,7 +132,7 @@ nav div div {
     color: white;
     font-size: 30px;
     text-align: center;
-    border-color:#aaaaee;
+    border-color:rgba(112 , 112, 112);;
     border-width:2px;
     border-style:solid;
     cursor: pointer;
