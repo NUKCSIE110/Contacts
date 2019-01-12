@@ -91,4 +91,10 @@ router.get("/event", (req, res) => {
   })
 })
 
+router.get("/zuopu", (req, res) =>{
+  res.render('zuopu', {
+    title: '高大資工系友交流平臺'
+  })  
+})
+
 module.exports = router;
