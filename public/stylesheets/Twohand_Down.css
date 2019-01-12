@@ -23,7 +23,7 @@ nav div div {
     height: 79vh;
     position: absolute;
     left: 40px;
-    border-radius:40px 0px 40px 40px;
+    border-radius:40px 20px 40px 40px;
     background-color:rgb(90, 90, 90,.75);
     
     /* border-color:#aaaaee;
@@ -66,7 +66,7 @@ nav div div {
     height: 30vh;
     background-color: rgba(90, 90, 90, 0.75);
     margin: 20px;
-    border-color:#aaaaee;
+    border-color:rgba(112, 112, 112);
     border-width:1px;
     border-style:solid;
     margin: 20px;
@@ -80,7 +80,8 @@ nav div div {
     font-family: 'SF Pro Display';
     color: white;
     text-align: center;
-    border-color:#aaaaee;
+    border-color:rgba(112, 112, 112);
+    cursor: pointer;
     border-width:1px;
     border-style:solid;
     margin: 0px;
