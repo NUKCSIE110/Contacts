@@ -90,5 +90,10 @@ router.get("/event", (req, res) => {
     title: '高大資工系友交流平臺'
   })
 })
+router.get("/Twohand_Market", (req, res) => {
+  res.render('Twohand_Market', {
+    title: '高大資工系友交流平臺'
+  })
+})
 
 module.exports = router;
