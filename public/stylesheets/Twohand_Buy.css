@@ -74,7 +74,7 @@ nav div div {
     height: 300px;
     margin: 30px;
     background:rgba(90, 90, 90, 0);
-    border-width: 5px;
+    border-width: 1px;
     border-style: solid;
     border-color: rgba(112 , 112, 112);
 }
@@ -105,9 +105,9 @@ nav div div {
 .discription{
     width: 500px;
     height: 300px;
-    margin: 0px;
+    margin-top: 5px;
     background:rgba(90, 90, 90, 0);
-    border-width: 5px;
+    border-width: 1px;
     border-style: solid;
     border-color: rgba(112 , 112, 112);
 }
@@ -119,7 +119,7 @@ nav div div {
     cursor:pointer;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    border-width: 2px;
+    border-width: 1px;
     border-style: bold;
     border-color: white;
 }
