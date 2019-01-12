@@ -8,7 +8,7 @@ var plus = google.plus('v1');
 var oauth2 = google.auth.OAuth2
 var firebase = require('firebase')
 var config = {
-  apiKey: "AIzaSyCLvoOA69zFKFw-pxsU8_5LfuArDAyzwSY",
+  apiKey: process.env.firebase_apikey,
   authDomain: "nuk-contacts.firebaseapp.com",
   databaseURL: "https://nuk-contacts.firebaseio.com",
   projectId: "nuk-contacts",
