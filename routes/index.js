@@ -135,10 +135,19 @@ router.get('/logout', (req, res, next) => {
 
 router.get('/profile', (req, res, next) => {
   if (req.session['stuid'] != undefined) {
-    console.log(req.session)
-    res.render('profile', {
-      title: '資料 - 高大資工系友交流平臺',
-      name: req.session['name']
+    var page = req.query['p']
+    if (page === undefined) page = 1
+    db.ref('/users/').once('value',snapshot=>{
+      console.log(page)
+      var data = snapshot.val()
+      console.log(Object.keys(data).length)
+      for (let index in data) {
+        console.log(index,data[index])
+      }
+      res.render('profile', {
+        title: '資料 - 高大資工系友交流平臺',
+        name: req.session['name']
+      })
     })
   } else {
     res.redirect(302, '/login')
@@ -167,6 +176,20 @@ router.get('/profile/*', (req, res, next) => {
   } else {
     res.redirect(302, '/login')
     res.send()
+  }
+})
+
+router.post('/profile/*', (req, res, next) => {
+  if (req.session['stuid'] != undefined) {
+    console.log(req.url)
+    db.ref(`/users/${req.url.split('/')[2]}`).once('value', snapshot => {
+      if (snapshot.exists()) {
+        let data = snapshot.val()
+        res.send(200,data)
+      } else res.send(404)
+    })
+  } else {
+    res.send(403)
   }
 })
 
