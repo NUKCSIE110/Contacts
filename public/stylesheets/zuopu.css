@@ -26,6 +26,9 @@ nav div div {
     /* border-color:#aaaaee;
     border-width:3px;border-style:solid;
     padding:5px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .select{
     margin: 0 5%;
@@ -54,6 +57,26 @@ nav div div {
     width: 25%;
     height: 25%;
 }
-/* .empty{
-    padding: 5px;
-} */
+.node {
+    font: 10px sans-serif;
+    fill: #AAA;
+}
+.node:hover{
+    fill: #FFF;
+}
+  
+.link {
+    stroke: #333;
+    stroke-opacity: 0.5;
+    fill: none;
+    pointer-events: none;
+    stroke-width: 2px;
+}
+
+.mylink {
+    stroke: steelblue;
+    stroke-opacity: 0.8;
+    fill: none;
+    pointer-events: none;
+    stroke-width: 2px;
+}
