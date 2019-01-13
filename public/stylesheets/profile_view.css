@@ -22,68 +22,44 @@ nav div div {
 
 .folder {
     display: flex;
-    flex-direction: row;
     height: 70vh;
     overflow: hidden;
     margin: 0 5%;
+    padding: 2%;
     border-radius: 40px 0 40px 40px;
     background-color: rgba(90, 90, 90, 0.75);
+    color:white;
 }
 
-#pre,
-#next {
+.folder .avatar {
+    flex:1;
     display: flex;
-    align-items: center;
-    cursor: pointer;
-    justify-content: center;
-    height: fit-content;
-    font-size: 2em;
-    height: 100%;
-    width: 2.5%;
-    color: white;
+    flex-direction:column; 
+    margin: 10px;
 }
 
-.folder .card-decks {
-    margin: auto;
-    width: 95%;
-}
-
-.folder .card-deck {
-    box-sizing: border-box;
-    margin:auto;
-    flex-wrap: wrap;
-}
-
-.folder .card-deck .card {
-    background: rgba(0, 0, 0, 0);
-    border: 0;
-    cursor: pointer;
-    color: white;
-}
-
-.folder .card-deck .card .imgback {
+.folder .imgback {
+    display: flex;
     background: url("/images/avatar_border.svg") center no-repeat;
-    width: fit-content;
-    background-size: 60%;
+    justify-content: center;
+    align-items: center;
+    background-clip: content-box;
+    background-size: contain;
+    width: 100%;
+    height: 75%;
 }
 
-.folder .card-deck .card img {
+.folder .imgback img {
     border-radius: 50%;
-    width: 50%;
-    margin: 5% 25%;
+    width: auto;
+	height: auto;
+	max-width: 75%;
+	max-height: 100%;
 }
 
-.card-deck {
-    margin: auto;
-}
-
-.card-body {
-    padding: 10px;
-    text-align: center;
-}
-
-.card-title {
-    margin: 0;
+.folder .inputs {
+    flex:2;
+    margin:10px;
 }
 
 .select {
