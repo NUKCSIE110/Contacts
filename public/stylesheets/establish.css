@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(rgba(0, 0, 0, .32), rgba(0, 0, 0, .32)), url('cb-colour-nightsky.jpg');
+    background: linear-gradient(rgba(0, 0, 0, .32), rgba(0, 0, 0, .32)), url('/images/cb-colour-nightsky.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
@@ -8,7 +8,20 @@ body {
     /* background-image:linear-gradient(rgba(0, 0, 0, 0.32),  rgba(0, 0, 0, 0.32)),url("cb-colour-nightsky.jpg"); */
     margin:0px;
 }
-.Username {
+nav{
+    margin: 10px 10px 20px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+nav div div {
+    cursor: pointer;
+    display:inline-block;
+    padding: 20px;
+    font-family: 'SF Pro Display';
+    color:white;
+    font-size: 35px;
+}
+/* .Username {
     padding: 20px;
     color:white;
     font-size: 28px;
@@ -17,7 +30,7 @@ body {
     padding: 20px; 
     font-size: 28px;
     color:white;
-}
+} */
 .folder{
     width: 95vw;
     height: 79vh;
@@ -30,17 +43,17 @@ body {
     border-width:3px;border-style:solid;
     padding:5px; */
 }
-.Background{
+/* .Background{
     justify-content: flex-end;
     display: flex;
-}
+} */
 .select{
     margin-top:25px; 
     color: white;
     font-size: 25px;
     display: flex;
     justify-content: flex-end;
-    padding-right: 17px;
+ 
     
 }
 
@@ -74,8 +87,8 @@ body {
 
 
 .logo{
-    position: absolute;
-    left: 0%;
+    width: 25%;
+    height: 25%;
 }
 
 .calendar{

@@ -9,7 +9,7 @@ body {
 nav{
     margin: 10px 10px 20px 10px;
     justify-content: space-between;
-    display: flex;
+    display: flex;  
 }
 nav div div {
     cursor: pointer;
