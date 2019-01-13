@@ -120,14 +120,9 @@ router.get('/profile', (req, res, next) => {
 })
 
 router.get("/event", (req, res) => {
-<<<<<<< HEAD
-  res.render('eventShopping', {
-    title: '高大資工系友交流平臺'
-=======
   res.render('event', {
     title: '高大資工系友交流平臺',
     stuid: req.session['stuid']
->>>>>>> 0d8480cdd1167c66aece7afd4e057db930933745
   })
 })
 router.get("/Twohand_Market", (req, res) => {
