@@ -33,10 +33,10 @@
         </div>
     </nav>
     <div class="select">
-            <div style="margin-top:-0.85em;"><a href="/profile">　系友資料　</a></div>
-            <div><a href="/zupu">　祖　譜　</a></div>
-            <div><a href="/event"> 聚會聚起來!</a></div>
-            <div><a href="/twohand/market">　二手市集　</a></div>
+        <div style="margin-top:-0.85em;"><a href="/profile">　系友資料　</a></div>
+        <div><a href="/zupu">　祖　譜　</a></div>
+        <div><a href="/event"> 聚會聚起來!</a></div>
+        <div><a href="/twohand/market">　二手市集　</a></div>
     </div>
     <div class='folder'>
         <div id="pre">
@@ -45,62 +45,110 @@
         <div class="card-decks">
             <div class="card-deck">
                 <div class="card">
-                    <div class="imgback"><img class="card-img-top" src="https://i.imgur.com/gwRwn2m.png" alt="Card image cap"></div>
-                    <div class="card-body">
-                        <h5 class="card-title">黃翰俞</h5>
-                        <p class="card-text">110級</p>
-                    </div>
+                    <% if (arr[0]!=undefined) { %>
+                    <a href="/profile/<%=arr[0].stu%>">
+                        <div class="imgback"><img class="card-img-top" src="<%=arr[0].avatar%>" alt="Card image cap"></div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%=arr[0].name%>
+                            </h5>
+                            <p class="card-text">
+                                <%=arr[0].grade%>級</p>
+                        </div>
+                    </a>
+                    <% } %>
                 </div>
                 <div class="card">
-                    <div class="imgback"><img class="card-img-top" src="https://i.imgur.com/gwRwn2m.png" alt="Card image cap"></div>
-                    <div class="card-body">
-                        <h5 class="card-title">黃翰俞</h5>
-                        <p class="card-text">110級</p>
-                    </div>
+                    <% if (arr[1]!=undefined) { %> <a href="/profile/<%=arr[1].stu%>">
+                        <div class="imgback"><img class="card-img-top" src="<%=arr[1].avatar%>" alt="Card image cap"></div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%=arr[1].name%>
+                            </h5>
+                            <p class="card-text">
+                                <%=arr[1].grade%>級</p>
+                        </div>
+                    </a>
+                    <% } %>
                 </div>
                 <div class="card">
-                    <div class="imgback"><img class="card-img-top" src="https://i.imgur.com/gwRwn2m.png" alt="Card image cap"></div>
-                    <div class="card-body">
-                        <h5 class="card-title">黃翰俞</h5>
-                        <p class="card-text">110級</p>
-                    </div>
+                    <% if (arr[2]!=undefined) { %> <a href="/profile/<%=arr[2].stu%>">
+                        <div class="imgback"><img class="card-img-top" src="<%=arr[2].avatar%>" alt="Card image cap"></div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%=arr[2].name%>
+                            </h5>
+                            <p class="card-text">
+                                <%=arr[2].grade%>級</p>
+                        </div>
+                    </a>
+                    <% } %>
                 </div>
                 <div class="card">
-                    <div class="imgback"><img class="card-img-top" src="https://i.imgur.com/gwRwn2m.png" alt="Card image cap"></div>
-                    <div class="card-body">
-                        <h5 class="card-title">黃翰俞</h5>
-                        <p class="card-text">110級</p>
-                    </div>
+                    <% if (arr[3]!=undefined) { %> <a href="/profile/<%=arr[3].stu%>">
+                        <div class="imgback"><img class="card-img-top" src="<%=arr[3].avatar%>" alt="Card image cap"></div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%=arr[3].name%>
+                            </h5>
+                            <p class="card-text">
+                                <%=arr[3].grade%>級</p>
+                        </div>
+                    </a>
+                    <% } %>
                 </div>
             </div>
             <div class="card-deck">
                 <div class="card">
-                    <div class="imgback"><img class="card-img-top" src="https://i.imgur.com/gwRwn2m.png" alt="Card image cap"></div>
-                    <div class="card-body">
-                        <h5 class="card-title">黃翰俞</h5>
-                        <p class="card-text">110級</p>
-                    </div>
+                    <% if (arr[4]!=undefined) { %> <a href="/profile/<%=arr[4].stu%>">
+                        <div class="imgback"><img class="card-img-top" src="<%=arr[4].avatar%>" alt="Card image cap"></div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%=arr[4].name%>
+                            </h5>
+                            <p class="card-text">
+                                <%=arr[4].grade%>級</p>
+                        </div>
+                    </a>
+                    <% } %>
                 </div>
                 <div class="card">
-                    <div class="imgback"><img class="card-img-top" src="https://i.imgur.com/gwRwn2m.png" alt="Card image cap"></div>
-                    <div class="card-body">
-                        <h5 class="card-title">黃翰俞</h5>
-                        <p class="card-text">110級</p>
-                    </div>
+                    <% if (arr[5]!=undefined) { %> <a href="/profile/<%=arr[5].stu%>">
+                        <div class="imgback"><img class="card-img-top" src="<%=arr[5].avatar%>" alt="Card image cap"></div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%=arr[5].name%>
+                            </h5>
+                            <p class="card-text">
+                                <%=arr[5].grade%>級</p>
+                        </div>
+                    </a>
+                    <% } %>
                 </div>
                 <div class="card">
-                    <div class="imgback"><img class="card-img-top" src="https://i.imgur.com/gwRwn2m.png" alt="Card image cap"></div>
-                    <div class="card-body">
-                        <h5 class="card-title">黃翰俞</h5>
-                        <p class="card-text">110級</p>
-                    </div>
+                    <% if (arr[6]!=undefined) { %> <a href="/profile/<%=arr[6].stu%>">
+                        <div class="imgback"><img class="card-img-top" src="<%=arr[6].avatar%>" alt="Card image cap"></div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%=arr[6].name%>
+                            </h5>
+                            <p class="card-text">
+                                <%=arr[6].grade%>級</p>
+                        </div>
+                    </a>
+                    <% } %>
                 </div>
                 <div class="card">
-                    <div class="imgback"><img class="card-img-top" src="https://i.imgur.com/gwRwn2m.png" alt="Card image cap"></div>
+                    <% if (arr[7]!=undefined) { %><a href="/profile/<%=arr[7].stu%>"></a>
+                    <div class="imgback"><img class="card-img-top" src="<%=arr[7].avatar%>" alt="Card image cap"></div>
                     <div class="card-body">
-                        <h5 class="card-title">黃翰俞</h5>
-                        <p class="card-text">110級</p>
-                    </div>
+                        <h5 class="card-title">
+                            <%=arr[7].name%>
+                        </h5>
+                        <p class="card-text">
+                            <%=arr[7].grade%>級</p>
+                    </div></a>
+                    <% } %>
                 </div>
             </div>
         </div>

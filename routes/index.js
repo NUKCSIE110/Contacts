@@ -18,7 +18,7 @@ var config = {
 };
 var clientid = process.env.clientid
 var clientsecret = process.env.clientsecret
-var redirection = 'http://localhost/loginCallback'
+var redirection = 'https://nuk-csie-contacts.herokuapp.com/loginCallback'
 firebase.initializeApp(config);
 console.log(clientid, clientsecret)
 var db = firebase.database();
@@ -142,12 +142,22 @@ router.get('/profile', (req, res, next) => {
       var data_arr = new Array
       var length = Object.keys(data).length
       for (let index in data) {
-        data_arr.push({stu:index,data:data[index]})
+        data_arr.push({stu:index,...data[index]})
       }
+      // if (length < 8) {
+      //   for(let i = 8 ; i>0 ; i--){
+      //     data_arr.push({
+      //       avatar:'',
+      //       name:'',
+      //       stu:''
+      //     })
+      //   }
+      // }
         console.log(data_arr)
         res.render('profile', {
         title: '資料 - 高大資工系友交流平臺',
-        name: req.session['name']
+        name: req.session['name'],
+        arr:data_arr
       })
     })
   } else {
