@@ -36,7 +36,7 @@ class family{
         this.baseNode.addEventListener('click', this.toggleExpand);
         $.post(`/profile/a${this.grade}${5500+this.id}`, (function(data){
             this.baseNode.style.backgroundImage=`url("${data.avatar}")`;
-            this.baseNode.style.backgroundClip="contain";
+            this.baseNode.style.backgroundSize="contain";
             this.baseNode.innerText="";
         }).bind(this), 'json');        
         this.upperNode = [];
@@ -52,7 +52,7 @@ class family{
         let newUpper = document.createElement('div');
         newUpper.classList.add('upperNode');
         newUpper.style.backgroundImage=`url("${data.avatar}")`;
-        newUpper.style.backgroundClip="contain";
+        newUpper.style.backgroundSize="contain";
         this.upperNode.push(newUpper);
     }
     toggleExpand(){
