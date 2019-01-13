@@ -4,7 +4,7 @@ body {
     background-attachment: fixed;
     background-position: center;
     overflow-x: hidden;
-    font-family: 'Thasadith','Noto Sans TC', sans-serif;
+    font-family: 'Thasadith','Noto Sans TC', sans-serif !important;
 }
 nav{
     margin: 10px 10px 20px 10px;
@@ -34,8 +34,8 @@ nav div div {
     font-size: 25px;
     display: flex;
     justify-content: flex-end;
+    padding-right: 15px;
 }
-
 .select div{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -44,6 +44,7 @@ nav div div {
     background-color:rgba(90, 90, 90, 0.75); 
     padding-left: 10px;
     padding-right: 10px;
+    padding-top: 10px;
 }
 
 .folder .wrap{
