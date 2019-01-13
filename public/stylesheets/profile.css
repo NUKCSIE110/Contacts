@@ -87,22 +87,22 @@ nav div div {
     margin: 0;
 }
 
-.select {
-    margin: 0 5%;
+.select{
     color: white;
-    height: 1.8em;
-    font-size: 1.8em;
+    font-size: 25px;
     display: flex;
     justify-content: flex-end;
+    padding-right: 15px;
 }
-
-.select div {
+.select div{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     margin-left: 20px;
-    background-color: rgba(90, 90, 90, 0.75);
+    margin-right:20px; 
+    background-color:rgba(90, 90, 90, 0.75); 
     padding-left: 10px;
     padding-right: 10px;
+    padding-top: 10px;
 }
 
 .logo {
