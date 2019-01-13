@@ -125,23 +125,23 @@ router.get("/event", (req, res) => {
     stuid: req.session['stuid']
   })
 })
-router.get("/Twohand_Market", (req, res) => {
-  res.render('Twohand_Market', {
+router.get("/twohand/market", (req, res) => {
+  res.render('twohand_market', {
     title: '高大資工系友交流平臺'
   })
 })
-router.get("/Twohand_Down", (req, res) => {
-  res.render('Twohand_Down', {
+router.get("/twohand/down", (req, res) => {
+  res.render('twohand_down', {
     title: '高大資工系友交流平臺'
   })
 })
-router.get("/Twohand_Up", (req, res) => {
-  res.render('Twohand_Up', {
+router.get("/twohand/up", (req, res) => {
+  res.render('twohand_up', {
     title: '高大資工系友交流平臺'
   })
 })
-router.get("/Twohand_Buy", (req, res) => {
-  res.render('Twohand_Buy', {
+router.get("/twohand/buy", (req, res) => {
+  res.render('twohand_buy', {
     title: '高大資工系友交流平臺'
   })
 })
