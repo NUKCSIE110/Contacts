@@ -12,6 +12,7 @@ nav{
     display: flex;
 }
 nav div div {
+    cursor: pointer;
     display:inline-block;
     padding: 20px;
     font-family: 'SF Pro Display';
@@ -39,6 +40,7 @@ nav div div {
     padding-right: 80px;
 }
 .select div{
+    cursor: pointer;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     margin-left: 20px;
