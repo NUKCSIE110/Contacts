@@ -260,7 +260,7 @@ router.get("/twohand/up", (req, res) => {
   })
 })
 router.get("/twohand/buy", (req, res) => {
-  res.render('Twohand_Buy', {
+  res.render('twohand_buy', {
     title: '購買商品',
     stuid: req.session['stuid']
   })
