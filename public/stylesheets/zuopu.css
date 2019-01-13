@@ -105,10 +105,6 @@ nav div div {
     position: relative;
 }
 
-.lowerNode{
-
-}
-
 @keyframes showUp{
     0%{
         height:0px;
