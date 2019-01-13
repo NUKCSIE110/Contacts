@@ -18,7 +18,7 @@ var config = {
 };
 var clientid = process.env.clientid
 var clientsecret = process.env.clientsecret
-var redirection = 'https://nuk-csie-contacts.herokuapp.com/loginCallback'
+var redirection = 'http://nuk-csie-contacts.herokuapp.com/loginCallback'
 firebase.initializeApp(config);
 console.log(clientid, clientsecret)
 var db = firebase.database();
