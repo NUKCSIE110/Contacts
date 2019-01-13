@@ -55,28 +55,28 @@
         <div class="inputs">
             <input id="upload_avatar_base64" type="hidden" name="avatar">
             <div class="form-group">
-                <label for="phone">行動電話</label>
+                <h5 for="phone">行動電話</h5>
                 <% if(data.phone=="") data.phone='無'%>
                 <div>
                     <%= data.phone %>
                 </div>
             </div>
             <div class="form-group">
-                <label for="email">Email</label>
+                <h5 for="email">Email</h5>
                 <% if(data.email=="") data.email='無'%>
                 <div>
                     <%= data.email %>
                 </div>
             </div>
             <div class="form-group">
-                <label for="line">Line ID</label>
+                <h5 for="line">Line ID</h5>
                 <% if(data.line=="") data.line='無'%>
                 <div>
                     <%= data.line %>
                 </div>
             </div>
             <div class="form-group">
-                <label for="inlineFormInputGroup">Telegram</label>
+                <h5 for="inlineFormInputGroup">Telegram</h5>
                 <% if(data.telegram=="") data.telegram='無'
                 else data.telegram = '@'+data.telegram%>
                 <div>
@@ -84,7 +84,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="facebook">Facebook</label>
+                <h5 for="facebook">Facebook</h5>
                 <% if(data.facebook!="") data.facebook = 'https://www.facebook.com/'+data.facebook %>
                 <a href="<%= data.facebook %>">
                     <div>
