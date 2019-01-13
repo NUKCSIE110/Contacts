@@ -18,7 +18,8 @@ var config = {
 };
 var clientid = process.env.clientid
 var clientsecret = process.env.clientsecret
-var redirection = 'http://nuk-csie-contacts.herokuapp.com/loginCallback'
+//var redirection = 'http://nuk-csie-contacts.herokuapp.com/loginCallback'
+var redirection = 'http://localhost/loginCallback'
 firebase.initializeApp(config);
 console.log(clientid, clientsecret)
 var db = firebase.database();
@@ -221,10 +222,10 @@ router.post('/profile/edit', (req, res, next) => {
   }
 })
 
-router.post('/profile/*', (req, res, next) => {
+router.post('/profile/all', (req, res, next) => {
   if (req.session['stuid'] != undefined) {
     console.log(req.url)
-    db.ref(`/users/${req.url.split('/')[2]}`).once('value', snapshot => {
+    db.ref(`/users/`).once('value', snapshot => {
       if (snapshot.exists()) {
         let data = snapshot.val()
         res.send(200,data)
@@ -278,10 +279,11 @@ router.get("/attempt", (req, res) => {
   })
 })
 
-router.get("/zuopu", (req, res) =>{
-  res.render('zuopu', {
+router.get("/zupu", (req, res) =>{
+  res.render('zupu', {
     title: '族譜',
     stuid: req.session['stuid'],
+    name: req.session['name'],
   })  
 })
 
