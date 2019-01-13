@@ -50,15 +50,18 @@ nav div div {
     width: 25%;
     height: 25%;
 }
-.photo div{
+.photo{
+    display: flex;
+    flex-direction: column;
     margin-left:180px;
     margin-right:5px;
     font-family: 'SF Pro Display';
     color: white;
 }
 .UP_Button{ 
+    width: 300px;
     margin-top:40px;
-    font-size: 30px;
+    font-size: 25px;
     text-align: center;
     border-color: rgba(112 , 112, 112);;
     border-width:2px;
