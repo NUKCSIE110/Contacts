@@ -152,5 +152,10 @@ router.get("/Twohand_Buy", (req, res) => {
     title: '高大資工系友交流平臺'
   })
 })
+router.get("/establish", (req, res) => {
+  res.render('establish', {
+    title: '高大資工系友交流平臺'
+  })
+})
 
 module.exports = router;
