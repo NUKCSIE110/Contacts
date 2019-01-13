@@ -267,4 +267,11 @@ router.get("/attempt", (req, res) => {
   })
 })
 
+router.get("/zuopu", (req, res) =>{
+  res.render('zuopu', {
+    title: '族譜',
+    stuid: req.session['stuid'],
+  })  
+})
+
 module.exports = router;
