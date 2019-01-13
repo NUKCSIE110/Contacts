@@ -17,7 +17,7 @@ btn.addEventListener('click', function () {
     "contact": contact.value,
     "price": price.value,
     "option": option.value,
-    "picture": upphoto.src.split
+    "picture": upphoto.src
   };
   console.log(push_data)
   database.push(push_data, function(){window.location.assign("http://localhost/twohand/market");})

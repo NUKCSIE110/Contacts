@@ -73,6 +73,10 @@ nav div div {
     border-width:1px;
     border-style:solid;
 }
+.box div img{
+    width: 12vw;
+    height: 25vh;
+}
 .line{
     margin-left:100px;
     margin-right:100px;
