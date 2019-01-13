@@ -8,7 +8,6 @@ var firebase = require('firebase')
 var imgur = require('imgur')
 imgur.setClientId('3f0312bbb4f882d');
 imgur.setAPIUrl('https://api.imgur.com/3/');
-imgur.getAPIUrl();
 var config = {
   apiKey: process.env.firebase_apikey,
   authDomain: "nuk-contacts.firebaseapp.com",
