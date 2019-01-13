@@ -5,6 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDnptdEc3-McxxtU4wjzz8OJA0N-fH2rXo",
+            authDomain: "productupload-dc9a2.firebaseapp.com",
+            databaseURL: "https://productupload-dc9a2.firebaseio.com",
+            projectId: "productupload-dc9a2",
+            storageBucket: "productupload-dc9a2.appspot.com",
+            messagingSenderId: "226606373241"
+        };
+        firebase.initializeApp(config);
+    </script>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC|Thasadith:400,700&amp;subset=chinese-traditional,latin-ext"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC:700" rel="stylesheet">
@@ -66,20 +79,8 @@
             <div class="return"><a href="/twohand/market">返回</a></div>
         </div>
     </div>
-<script src="/Javascripts/upload.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDnptdEc3-McxxtU4wjzz8OJA0N-fH2rXo",
-    authDomain: "productupload-dc9a2.firebaseapp.com",
-    databaseURL: "https://productupload-dc9a2.firebaseio.com",
-    projectId: "productupload-dc9a2",
-    storageBucket: "productupload-dc9a2.appspot.com",
-    messagingSenderId: "226606373241"
-  };
-  firebase.initializeApp(config);
-</script>
+    <script src="/Javascripts/upload.js"></script>
+
 </body>
 
 </html>

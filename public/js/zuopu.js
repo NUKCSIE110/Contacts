@@ -34,7 +34,7 @@ class family{
         this.toggleExpand = this.toggleExpand.bind(this);
         this.addUpper = this.addUpper.bind(this);
         this.baseNode.addEventListener('click', this.toggleExpand);
-        $.post(`/profile/A${this.grade}${this.id}`, (function(data){
+        $.post(`/profile/a${this.grade}${5500+this.id}`, (function(data){
             this.baseNode.style.backgroundImage=`url("${data.avatar}")`;
             this.baseNode.style.backgroundClip="contain";
             this.baseNode.innerText="";
@@ -46,7 +46,7 @@ class family{
         let test=[103,104,105,106,107];
         for(let i of test){
             if(i==this.grade) continue;
-            $.post(`/profile/A${i}${5500+this.id}`,this.addUpper,'json');
+            $.post(`/profile/a${i}${5500+this.id}`,this.addUpper,'json');
         }
     }
     addUpper(data){
