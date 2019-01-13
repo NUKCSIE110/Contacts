@@ -15,7 +15,6 @@ nav div div {
     cursor: pointer;
     display:inline-block;
     padding: 20px;
-    font-family: 'SF Pro Display';
     color:white;
     font-size: 35px;
 }
@@ -104,7 +103,7 @@ nav div div {
 .event .des{
     background:rgba(90, 90, 90, 0);
     cursor:pointer;
-    border-width: 2px;
+    border-width: 1px;
     border-style: solid;
     border-color: rgba(112 , 112, 112);
 }
@@ -115,6 +114,7 @@ nav div div {
 }
 
 .folder .build{
+    cursor: pointer;
     font-size: 25px;
     color:white;
     border:2px solid #707070;
@@ -122,6 +122,10 @@ nav div div {
     margin-bottom:0px;
     margin-left: 80px;
     padding:5px;
+}
+a{
+    color: white!important;
+    
 }
 /* .empty{
     padding: 5px;

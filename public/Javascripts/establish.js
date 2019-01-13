@@ -20,18 +20,39 @@ for(var i=2019;i<2101;i++){
 
 strb+='<option value="all">月</option>';
 for(var i=1;i<13;i++){
-    strb+='<option value="'+i+'">'+i+'</option>';
+    if(i < 10){
+        strb+='<option value="'+i+'">0'+i+'</option>';
+    }
+    else{
+        strb+='<option value="'+i+'">'+i+'</option>';
+    }
+    
 }
 for(var i=1;i<32;i++){
-    strc+='<option value="'+i+'">'+i+'</option>';
+    if(i < 10){
+        strc+='<option value="'+i+'">0'+i+'</option>';
+    }
+    else{
+        strc+='<option value="'+i+'">'+i+'</option>';
+    }
 }
 strd+='<option value="all">時</option>';
 for(var i=0;i<24;i++){
-    strd+='<option value="'+i+'">'+i+'</option>';
+    if(i < 10){
+        strd+='<option value="'+i+'">0'+i+'</option>';
+    }
+    else{
+        strd+='<option value="'+i+'">'+i+'</option>';
+    }
 }
 stre+='<option value="all">分</option>';
 for(var i=0;i<60;i++){
-    stre+='<option value="'+i+'">'+i+'</option>';
+    if(i < 10){
+        stre+='<option value="'+i+'">0'+i+'</option>';
+    }
+    else{
+        stre+='<option value="'+i+'">'+i+'</option>';
+    }
 }
 
 years.innerHTML=stra;

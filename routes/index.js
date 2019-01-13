@@ -31,7 +31,8 @@ var getOAuthClient = () => new oauth2(clientid, clientsecret, redirection)
 function getAuthurl() {
   var oauth2Client = getOAuthClient();
   var scopes = [
-    'https://www.googleapis.com/auth/userinfo.email'
+    'https://www.googleapis.com/auth/userinfo.email',
+    'https://www.googleapis.com/auth/userinfo.profile'
   ];
   var url = oauth2Client.generateAuthUrl({
     access_type: 'offline',
@@ -42,7 +43,7 @@ function getAuthurl() {
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  if (req.session['email'] === undefined) res.redirect(302, '/login')
+  if (req.session['stuid'] === undefined) res.redirect(302, '/login')
   else res.redirect(302, '/profile')
   res.send()
 });
@@ -65,7 +66,7 @@ router.get('/loginCallback', function (req, res, next) {
       new Promise(function (resolve, reject) {
         plus.people.get({
           userId: 'me',
-          fields: 'emails',
+          fields: 'displayName,emails',
           auth: oauth2Client
         }, function (err, response) {
           if (!err) {
@@ -82,12 +83,29 @@ router.get('/loginCallback', function (req, res, next) {
           db.ref(`users/${stuid}`).once("value", snapshot => {
             if (!snapshot.exists()) {
               db.ref(`/users/${stuid}`).set({
-                name: email.split('@')[0],
+                avatar: `https://api.adorable.io/avatars/400/${email.split('@')[0]}.png`,
+                email:'',
+                facebook: '',
                 grade: parseInt(email.slice(1, 4)) + 4,
-                avatar: ''
+                line: '',
+                name: data.data.displayName,
+                phone: '',
+                telegram: '',
               })
+            } else {
+              let data = snapshot.val()
+              console.log(data)
+              session['avatar'] = data.avatar
+              session['email'] = data.email
+              session['facebook'] = data.facebook
+              session['grade'] = data.grade
+              session['line'] = data.line
+              session['name'] = data.name
+              session['phone'] = data.phone
+              session['telegram'] = data.telegram
+              session.save()
             }
-          });
+          })
           res.render('loginCallback', {
             title: '登入成功 - 高大資工系友交流平臺',
             href: 'profile',
@@ -108,15 +126,57 @@ router.get('/loginCallback', function (req, res, next) {
   });
 });
 
-router.get('/profile', (req, res, next) => {
-  if (req.session['stuid'] != undefined) res.render('profile', {
-    title: '資料 - 高大資工系友交流平臺',
-    stuid: req.session['stuid']
+router.get('/logout',(req,res,next)=>{
+  req.session.destroy()
+  res.render('logout',{
+    title: '登出成功 - 高大資工系友交流平臺',
+    href: 'login',
+    status: 'success',
+    message: '登出成功，3秒後導向至登入畫面。'
   })
-  else {
+})
+
+router.get('/profile', (req, res, next) => {
+  if (req.session['stuid'] != undefined) {
+    console.log(req.session)
+    res.render('profile', {
+      title: '資料 - 高大資工系友交流平臺',
+      name: req.session['name']
+    })
+  } else {
     res.redirect(302, '/login')
     res.send()
   }
+})
+
+router.get('/profile/*', (req, res, next) => {
+  if (req.session['stuid'] != undefined) {
+    console.log(req.url)
+    db.ref(`/users/${req.url.split('/')[2]}`).once('value',snapshot=>{
+      if(snapshot.exists()){
+        let data = snapshot.val()
+        if (req.session['stuid'] === req.url.split('/')[2]) res.render('profile_self', {
+          title: '資料 - 高大資工系友交流平臺',
+          name: req.session['name'],
+          data: data
+        })
+        else res.render('profile_id', {
+          title: '資料 - 高大資工系友交流平臺',
+          name: req.session['name'],
+          data: data
+        })
+      } else res.send(404,'Not Found')
+    })
+  } else {
+    res.redirect(302, '/login')
+    res.send()
+  }
+})
+
+router.post('/profile/edit',(req,res,next)=>{
+  console.log(req.body)
+  res.redirect(302,`/profile/${req.session['stuid']}`)
+  res.send()
 })
 
 router.get("/event", (req, res) => {
