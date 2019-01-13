@@ -41,6 +41,7 @@ nav div div {
 
 
 .folder .attempt{
+    cursor: pointer;
     font-size: 25px;
     margin: 10px;
     display: block;
@@ -50,6 +51,7 @@ nav div div {
 }
 
 .folder .build{
+    cursor: pointer;
     font-size: 25px;
     margin: 10px;
     display: block;
