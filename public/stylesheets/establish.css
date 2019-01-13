@@ -4,9 +4,7 @@ body {
     background-attachment: fixed;
     background-position: center;
     overflow-x: hidden;
-    font-family: 'Microsoft JhengHei','SF Pro Display';
-    /* background-image:linear-gradient(rgba(0, 0, 0, 0.32),  rgba(0, 0, 0, 0.32)),url("cb-colour-nightsky.jpg"); */
-    margin:0px;
+    font-family: 'Thasadith','Noto Sans TC', sans-serif;
 }
 nav{
     margin: 10px 10px 20px 10px;
@@ -21,16 +19,7 @@ nav div div {
     color:white;
     font-size: 35px;
 }
-/* .Username {
-    padding: 20px;
-    color:white;
-    font-size: 28px;
-}
-.Signout{
-    padding: 20px; 
-    font-size: 28px;
-    color:white;
-} */
+
 .folder{
     width: 95vw;
     height: 79vh;
@@ -83,7 +72,6 @@ nav div div {
     margin-bottom: 30px;
 }
 
-
 .logo{
     width: 25%;
     height: 25%;
@@ -135,7 +123,6 @@ nav div div {
 
 .folder .build{
     font-size: 25px;
-    display: block;
     color:white;
     border:5px solid #707070;
     margin:40px;
