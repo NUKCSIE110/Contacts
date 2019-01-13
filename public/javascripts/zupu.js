@@ -28,13 +28,17 @@ class family{
         this.family = document.createElement('div');
         this.family.classList.add('family');
         this.baseNode = document.createElement('div');
-        this.baseNode.innerText = `A${this.grade}${5500+this.id}`;
+        this.baseNode.dataset.t = getName(`a${this.grade}${5500+this.id}`);
+        this.baseNode.dataset.b = 
         this.baseNode.classList.add('baseNode');
 
         this.toggleExpand = this.toggleExpand.bind(this);
         this.addUpper = this.addUpper.bind(this);
         this.baseNode.addEventListener('click', this.toggleExpand);
-        this.baseNode.innerHTML=`<img src="${getAvatar(`a${this.grade}${5500+this.id}`)}">`;
+        this.baseNode.style.backgroundImage=
+            //'linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),'+
+            `url("${getAvatar(`a${this.grade}${5500+this.id}`)}")`;
+        this.baseNode.style.backgroundSize="cover";
         this.upperNode = [];
         this.family.appendChild(this.baseNode);
         this.contain.appendChild(this.family);
@@ -48,7 +52,8 @@ class family{
         //if(! inData(`a${grade}${5500+this.id}`)) return;
         let newUpper = document.createElement('div');
         newUpper.classList.add('upperNode');
-        newUpper.innerHTML=`<img src="${getAvatar(`a${grade}${5500+this.id}`)}">`;
+        newUpper.style.backgroundImage = `url("${getAvatar(`a${grade}${5500+this.id}`)}")`;
+        newUpper.style.backgroundSize = "cover";
         newUpper.addEventListener('click', (function(){
             window.location.href = `/profile/${this.url}`;
         }).bind({'url': `a${grade}${5500+this.id}`}));
@@ -102,6 +107,14 @@ $.post('/profile/all',function(d){
 
 function inData(id){
     return (id in data);
+}
+
+function getName(id){
+    if(id in data){
+        return data[id].name;
+    }else{
+        return id;
+    }
 }
 
 function getAvatar(id){

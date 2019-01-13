@@ -95,16 +95,20 @@ a:hover {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    color: white;
 }
 
 .family div:hover{
     border: solid 1px steelblue;
 }
 
-.family div img{
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
+.family div:hover{
+    -webkit-filter: brightness(50%);
+    filter: brightness(50%);
+}
+
+.family div:hover::before{
+    content:attr(data-t);
 }
 
 .baseNode{
