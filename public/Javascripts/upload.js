@@ -3,7 +3,7 @@ var name = document.querySelector(".Pname").value;
 var contact = document.querySelector(".Contact").value;
 var price = document.querySelector(".Price").value;
 var btn = document.querySelector(".Upload");
-var upphoto = document.querySelector('#img');
+var upphoto = document.querySelector('.UP_photo');
 console.log(btn);
 
 btn.addEventListener('click', function () {
@@ -11,15 +11,17 @@ btn.addEventListener('click', function () {
   var contact = document.querySelector(".Contact");
   var price = document.querySelector(".Price");
   var option = document.querySelector('option');
-  var upphoto = document.querySelector('#img');
-  database.push({
+  var upphoto = document.querySelector('.UP_photo');
+  let push_data = {
     "name": name.value,
     "contact": contact.value,
     "price": price.value,
     "option": option.value,
     "picture": upphoto.src.split(",")[1]
-  })
-  window.location.assign("http://localhost/twohand/market");
+  };
+  console.log(push_data)
+  database.push(push_data, function(){window.location.assign("http://localhost/twohand/market");})
+  console.log(upphoto.src.split(",")[1]);
 })
 
 $("#uploadImage").change(function () {
