@@ -36,6 +36,15 @@ nav div div {
     padding-right: 10px;
 
 }
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+    text-decoration: none;
+}
 
 .Zuopu{
     margin-top: -20px;

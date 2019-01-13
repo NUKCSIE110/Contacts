@@ -244,8 +244,8 @@ router.get("/attempt", (req, res) => {
   })
 })
 
-router.get("/zuopu", (req, res) =>{
-  res.render('zuopu', {
+router.get("/zupu", (req, res) =>{
+  res.render('zupu', {
     title: '族譜',
     stuid: req.session['stuid'],
   })  
