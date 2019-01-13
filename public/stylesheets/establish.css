@@ -4,7 +4,7 @@ body {
     background-attachment: fixed;
     background-position: center;
     overflow-x: hidden;
-    font-family: 'Thasadith','Noto Sans TC', sans-serif;
+    font-family: 'Thasadith','Noto Sans TC', sans-serif !important;
 }
 nav{
     margin: 10px 10px 20px 10px;
