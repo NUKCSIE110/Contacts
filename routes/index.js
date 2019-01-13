@@ -187,27 +187,38 @@ router.get("/event", (req, res) => {
 })
 router.get("/twohand/market", (req, res) => {
   res.render('twohand_market', {
-    title: '高大資工系友交流平臺'
+    title: '二手商場',
+    stuid: req.session['stuid']
   })
 })
 router.get("/twohand/down", (req, res) => {
   res.render('twohand_down', {
-    title: '高大資工系友交流平臺'
+    title: '下架商品',
+    stuid: req.session['stuid']
   })
 })
 router.get("/twohand/up", (req, res) => {
   res.render('twohand_up', {
-    title: '高大資工系友交流平臺'
+    title: '上架商品',
+    stuid: req.session['stuid']
   })
 })
 router.get("/twohand/buy", (req, res) => {
   res.render('twohand_buy', {
-    title: '高大資工系友交流平臺'
+    title: '購買商品',
+    stuid: req.session['stuid']
   })
 })
 router.get("/establish", (req, res) => {
   res.render('establish', {
-    title: '高大資工系友交流平臺'
+    title: '建立活動',
+    stuid: req.session['stuid']
+  })
+})
+router.get("/attempt", (req, res) => {
+  res.render('attempt', {
+    title: '參加活動',
+    stuid: req.session['stuid']
   })
 })
 

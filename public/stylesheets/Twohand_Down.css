@@ -4,7 +4,7 @@ body {
     background-attachment: fixed;
     background-position: center;
     overflow-x: hidden;
-    margin:0px;
+    font-family: 'Thasadith','Noto Sans TC', sans-serif;
 }
 nav{
     margin: 10px 10px 20px 10px;
@@ -12,27 +12,21 @@ nav{
     display: flex;
 }
 nav div div {
-    cursor: pointer;
     display:inline-block;
     padding: 20px;
-    font-family: 'SF Pro Display';
     color:white;
-    font-size: 35px;
+    font-size: 28px;
 }
 .folder{
-    width: 95vw;
+    width: 94vw;
     height: 79vh;
     position: absolute;
     left: 40px;
-    border-radius:40px 20px 40px 40px;
+    border-radius:40px 0px 40px 40px;
     background-color:rgb(90, 90, 90,.75);
-    
-    /* border-color:#aaaaee;
-    border-width:3px;border-style:solid;
-    padding:5px; */
+    margin-bottom: 20px;
 }
 .select{
-    margin-top:25px; 
     color: white;
     font-size: 25px;
     display: flex;
@@ -44,7 +38,7 @@ nav div div {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     margin-left: 20px;
-    margin-right:20px; 
+    margin-right:18px; 
     background-color:rgba(90, 90, 90, 0.75); 
     padding-left: 10px;
     padding-right: 10px;
@@ -110,4 +104,7 @@ nav div div {
     border-left-color: rgba(90, 90, 90, 0);
     border-right-color: rgba(90, 90, 90, 0);
     border-bottom-color: rgba(112, 112, 112)
+}
+a{
+    color: white;
 }

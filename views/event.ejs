@@ -7,6 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC|Thasadith:400,700&amp;subset=chinese-traditional,latin-ext"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC:700" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
     <link rel=stylesheet type="text/css" href="/stylesheets/event.css">
     <title>
         <%= title %>
@@ -18,18 +27,28 @@
         <img src='/images/logo.png' class="logo">
         <div>
             <div class="Username">
-                <%= stuid %>
+                <a href="/profile/<%= stuid %>">
+                    <%= stuid %></a>
             </div>
-            <div class="Signout">Signout</div>
+            <div class="Signout"><a href="/signout">Signout</a></div>
         </div>
     </nav>
     <div class="select">
         <div class="info"> <a href="/profile">系友資料</a> </div>
         <div class="zupu"><a href="/zupu">祖譜</a></div>
-        <div class="event" style="height:2.05em;margin-top:-0.25em;"><a href="/event">聚會聚起來!</a></div>
-        <div class="twohand"><a href="/twohand">二手市集</a></div>
+        <div class="event" style="margin-top:-0.25em;"><a href="/event">聚會聚起來!</a></div>
+        <div class="twohand"><a href="/twohand/market">二手市集</a></div>
     </div>
-    <div class='folder'></div>
+    <div class='folder'>
+        <div class='wrap'>
+        <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=v79l8bhblaaobqngneshc7kt4k%40group.calendar.google.com&amp;color=%23333333&amp;ctz=Asia%2FTaipei"
+            style="border-width:0" width="1200" height="500" frameborder="0" scrolling="no" class="calendar"></iframe>
+            <div class='event'>
+                <div class='attempt'><a href="/attempt">參加活動</a></div>
+                <div class='build'><a href="establish">建立活動</a></div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

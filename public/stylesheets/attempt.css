@@ -39,27 +39,6 @@ nav div div {
     margin-top:372px;
 }
 
-
-.folder .attempt{
-    cursor: pointer;
-    font-size: 25px;
-    margin: 10px;
-    display: block;
-    color:white;
-    border:5px solid #707070;
-    padding:10px;
-}
-
-.folder .build{
-    cursor: pointer;
-    font-size: 25px;
-    margin: 10px;
-    display: block;
-    color:white;
-    border:5px solid #707070;
-    padding:10px;
-}
-
 .select{
     color: white;
     font-size: 25px;
@@ -90,7 +69,3 @@ nav div div {
 a{
     color: white;
 }
-
-/* .empty{
-    padding: 5px;
-} */
