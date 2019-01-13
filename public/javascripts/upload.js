@@ -10,7 +10,7 @@ btn.addEventListener('click', function () {
   var name = document.querySelector(".Pname");
   var contact = document.querySelector(".Contact");
   var price = document.querySelector(".Price");
-  var option = document.querySelector('option');
+  var option = document.querySelector('select');
   var upphoto = document.querySelector('.UP_photo');
   let push_data = {
     "name": name.value,
@@ -20,7 +20,8 @@ btn.addEventListener('click', function () {
     "picture": upphoto.src
   };
   console.log(push_data)
-  database.push(push_data, function(){window.location.assign("http://localhost/twohand/market");})
+  var newData = database.push(push_data, function(){window.location.assign("http://localhost/twohand/market");})
+  console.log(newData.key())
 })
 
 $("#uploadImage").change(function () {
