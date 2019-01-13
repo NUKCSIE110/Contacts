@@ -101,31 +101,31 @@ nav div div {
     cursor:pointer;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: rgba(90, 90, 90, 0.2);
+    border-color:rgba(90, 90, 90, 0);
+    border-bottom: 2px solid rgba(112 , 112, 112);
 }
 
 .event .des{
-    font-size: 30px;
-    margin-top: 10px;
-    margin-bottom: 10px;
     background:rgba(90, 90, 90, 0);
     cursor:pointer;
-    border-width: 5px;
+    border-width: 2px;
     border-style: solid;
     border-color: rgba(112 , 112, 112);
 }
 .GG{
     display: flex;
-    
+    font-size: 30px;
+    margin-top: 10px;
 }
 
 .folder .build{
     font-size: 25px;
     color:white;
-    border:5px solid #707070;
-    margin:40px;
+    border:2px solid #707070;
+    margin-top:50px;
+    margin-bottom:0px;
+    margin-left: 80px;
+    padding:5px;
 }
 /* .empty{
     padding: 5px;
