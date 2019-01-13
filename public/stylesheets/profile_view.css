@@ -1,0 +1,96 @@
+body {
+    background: linear-gradient(rgba(0, 0, 0, .32), rgba(0, 0, 0, .32)), url('/images/cb-colour-nightsky.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    overflow-x: hidden;
+    font-family: 'Thasadith', 'Noto Sans TC', sans-serif;
+}
+
+nav {
+    margin: 10px 10px 20px 10px;
+    justify-content: space-between;
+    display: flex;
+}
+
+nav div div {
+    display: inline-block;
+    padding: 20px;
+    color: white;
+    font-size: 35px;
+}
+
+.folder {
+    display: flex;
+    height: 70vh;
+    overflow: hidden;
+    margin: 0 5%;
+    padding: 2%;
+    border-radius: 40px 0 40px 40px;
+    background-color: rgba(90, 90, 90, 0.75);
+    color:white;
+}
+
+.folder .avatar {
+    flex:1;
+    display: flex;
+    flex-direction:column; 
+    margin: 10px;
+}
+
+.folder .imgback {
+    display: flex;
+    background: url("/images/avatar_border.svg") center no-repeat;
+    justify-content: center;
+    align-items: center;
+    background-clip: content-box;
+    background-size: contain;
+    width: 100%;
+    height: 75%;
+}
+
+.folder .imgback img {
+    border-radius: 50%;
+    width: auto;
+	height: auto;
+	max-width: 75%;
+	max-height: 100%;
+}
+
+.folder .inputs {
+    flex:2;
+    margin:10px;
+}
+
+.select {
+    margin: 0 5%;
+    color: white;
+    height: 1.8em;
+    font-size: 1.8em;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.select div {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-left: 20px;
+    background-color: rgba(90, 90, 90, 0.75);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.logo {
+    width: 25%;
+    height: 25%;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+    text-decoration: none;
+}
