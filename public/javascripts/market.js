@@ -20,8 +20,8 @@ database.on('value',function(snapshot){
          str[i]=str2.split(",")[i];
        }
      for(var n of pic){
-       var start = 'data:image/jpeg;base64,'
-       xxx.src = start++;
+      //  var start = 'data:image/jpeg;base64,'
+      //  xxx.src = start++;
      }
      for(var l of line){
         l.textContent=str[j];
