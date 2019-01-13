@@ -190,20 +190,6 @@ router.get('/profile/*', (req, res, next) => {
   }
 })
 
-router.post('/profile/*', (req, res, next) => {
-  if (req.session['stuid'] != undefined) {
-    console.log(req.url)
-    db.ref(`/users/${req.url.split('/')[2]}`).once('value', snapshot => {
-      if (snapshot.exists()) {
-        let data = snapshot.val()
-        res.send(200,data)
-      } else res.send(404)
-    })
-  } else {
-    res.send(403)
-  }
-})
-
 router.post('/profile/edit', (req, res, next) => {
   var session = req.session
   if (session['stuid'] === undefined) {
@@ -232,6 +218,20 @@ router.post('/profile/edit', (req, res, next) => {
       res.redirect(303, `/profile/${req.session['stuid']}`)
       res.send()
     }
+  }
+})
+
+router.post('/profile/*', (req, res, next) => {
+  if (req.session['stuid'] != undefined) {
+    console.log(req.url)
+    db.ref(`/users/${req.url.split('/')[2]}`).once('value', snapshot => {
+      if (snapshot.exists()) {
+        let data = snapshot.val()
+        res.send(200,data)
+      } else res.send(404)
+    })
+  } else {
+    res.send(403)
   }
 })
 
