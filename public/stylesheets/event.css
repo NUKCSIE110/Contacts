@@ -1,11 +1,10 @@
 body {
-    background: linear-gradient(rgba(0, 0, 0, .32), rgba(0, 0, 0, .32)), url('cb-colour-nightsky.jpg');
+    background: linear-gradient(rgba(0, 0, 0, .32), rgba(0, 0, 0, .32)), url('/images/cb-colour-nightsky.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    font-family: 'Microsoft JhengHei','SF Pro Display';
     overflow-x: hidden;
-    margin:0px;
+    font-family: 'Thasadith','Noto Sans TC', sans-serif;
 }
 nav{
     margin: 10px 10px 20px 10px;
@@ -20,24 +19,21 @@ nav div div {
     font-size: 35px;
 }
 .folder{
-    width: 95vw;
+    width: 94vw;
     height: 79vh;
-    /*height: 70vh;*/
-    margin : 0 5%;
-    border-radius: 40px;
-    background-color: rgba(90, 90, 90, 0.75);
-    /* border-color:#aaaaee;
-    border-width:3px;border-style:solid;
-    padding:5px; */
+    position: absolute;
+    left: 40px;
+    border-radius:40px 0px 40px 40px;
+    background-color:rgb(90, 90, 90,.75);
+    
 }
 .select{
-    margin: 0 5%;
-    /*font-family: 'Ink Free';*/
+    margin-top:25px; 
     color: white;
-    font-size: 29px;
+    font-size: 25px;
     display: flex;
     justify-content: flex-end;
-    padding-right: 80px;
+    padding-right: 15px;
 }
 .select div{
     border-top-left-radius: 10px;
@@ -59,6 +55,10 @@ nav div div {
     margin-left: 20px;
     border-radius: 20px;
 }
+a{
+    color: white;
+}
+
 /* .empty{
     padding: 5px;
 } */
