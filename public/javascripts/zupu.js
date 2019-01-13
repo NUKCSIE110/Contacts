@@ -32,7 +32,7 @@ class family{
         newUpper.classList.add('upperNode');
         newUpper.style.backgroundImage = `url("${getAvatar(`a${grade}${5500+this.id}`)}")`;
         newUpper.style.backgroundSize = "cover";
-        newUpper.dataset.t = getName(`a${this.grade}${5500+this.id}`);
+        newUpper.dataset.t = getName(`a${grade}${5500+this.id}`);
         newUpper.addEventListener('click', (function(){
             window.location.href = `/profile/${this.url}`;
         }).bind({'url': `a${grade}${5500+this.id}`}));
