@@ -15,9 +15,8 @@ nav div div {
     cursor: pointer;
     display:inline-block;
     padding: 20px;
-    font-family: 'SF Pro Display';
     color:white;
-    font-size: 35px;
+    font-size: 28px;
 }
 
 .folder{
@@ -123,6 +122,10 @@ nav div div {
     margin-bottom:0px;
     margin-left: 80px;
     padding:5px;
+}
+a{
+    color: white!important;
+    
 }
 /* .empty{
     padding: 5px;
