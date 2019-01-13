@@ -80,6 +80,17 @@ nav div div {
     justify-content: space-between;
 
 }
+.line div{
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 12vw;
+    height: 3vh;
+    border-color:rgba(90, 90, 90,0); 
+    border-bottom-color: rgba(112,112,112);
+    border-width:1px;
+    border-style:solid;
+}
 .sort{
     margin-left:100px;
     margin-right:100px;
