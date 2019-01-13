@@ -38,6 +38,7 @@ class family{
             this.baseNode.style.backgroundImage=`url("${data.avatar}")`;
             this.baseNode.style.backgroundClip="contain";
             this.baseNode.innerText="";
+            console.log(data)
         }).bind(this), 'json');        
         this.upperNode = [];
         this.family.appendChild(this.baseNode);

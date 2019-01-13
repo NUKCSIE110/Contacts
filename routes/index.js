@@ -140,11 +140,13 @@ router.get('/profile', (req, res, next) => {
     db.ref('/users/').once('value',snapshot=>{
       console.log(page)
       var data = snapshot.val()
-      console.log(Object.keys(data).length)
+      var data_arr = new Array
+      var length = Object.keys(data).length
       for (let index in data) {
-        console.log(index,data[index])
+        data_arr.push({stu:index,data:data[index]})
       }
-      res.render('profile', {
+        console.log(data_arr)
+        res.render('profile', {
         title: '資料 - 高大資工系友交流平臺',
         name: req.session['name']
       })
