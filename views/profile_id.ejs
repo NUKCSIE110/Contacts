@@ -18,7 +18,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
         crossorigin="anonymous">
-    <link rel=stylesheet type="text/css" href="/stylesheets/profile.css">
+    <link rel=stylesheet type="text/css" href="/stylesheets/profile_view.css">
     <title>Document</title>
 </head>
 
@@ -39,75 +39,63 @@
         <div class="twohand"><a href="/twohand">二手市集</a></div>
     </div>
     <div class='folder'>
-        <div id="pre">
-            <i class="fas fa-caret-left"></i>
-        </div>
-        <div class="card-decks">
-            <div class="card-deck">
-                <div class="card">
-                    <div class="imgback"><img class="card-img-top" src="https://i.imgur.com/gwRwn2m.png" alt="Card image cap"></div>
-                    <div class="card-body">
-                        <h5 class="card-title">黃翰俞</h5>
-                        <p class="card-text">110級</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="imgback"><img class="card-img-top" src="https://i.imgur.com/gwRwn2m.png" alt="Card image cap"></div>
-                    <div class="card-body">
-                        <h5 class="card-title">黃翰俞</h5>
-                        <p class="card-text">110級</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="imgback"><img class="card-img-top" src="https://i.imgur.com/gwRwn2m.png" alt="Card image cap"></div>
-                    <div class="card-body">
-                        <h5 class="card-title">黃翰俞</h5>
-                        <p class="card-text">110級</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="imgback"><img class="card-img-top" src="https://i.imgur.com/gwRwn2m.png" alt="Card image cap"></div>
-                    <div class="card-body">
-                        <h5 class="card-title">黃翰俞</h5>
-                        <p class="card-text">110級</p>
-                    </div>
-                </div>
+        <div class="avatar">
+            <div class="imgback">
+                <img class="card-img-top" src="<%= data.avatar %>" alt="Card image cap">
             </div>
-            <div class="card-deck">
-                <div class="card">
-                    <div class="imgback"><img class="card-img-top" src="https://i.imgur.com/gwRwn2m.png" alt="Card image cap"></div>
-                    <div class="card-body">
-                        <h5 class="card-title">黃翰俞</h5>
-                        <p class="card-text">110級</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="imgback"><img class="card-img-top" src="https://i.imgur.com/gwRwn2m.png" alt="Card image cap"></div>
-                    <div class="card-body">
-                        <h5 class="card-title">黃翰俞</h5>
-                        <p class="card-text">110級</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="imgback"><img class="card-img-top" src="https://i.imgur.com/gwRwn2m.png" alt="Card image cap"></div>
-                    <div class="card-body">
-                        <h5 class="card-title">黃翰俞</h5>
-                        <p class="card-text">110級</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="imgback"><img class="card-img-top" src="https://i.imgur.com/gwRwn2m.png" alt="Card image cap"></div>
-                    <div class="card-body">
-                        <h5 class="card-title">黃翰俞</h5>
-                        <p class="card-text">110級</p>
-                    </div>
-                </div>
+            <div class="data">
+                <h5 class="name">
+                    <%=data.name%>
+                </h5>
+                <h6 class="grade">
+                    <%=data.grade%>級
+                </h6>
             </div>
         </div>
-        <div id="next">
-            <i class="fas fa-caret-right"></i>
+        <div class="inputs">
+            <input id="upload_avatar_base64" type="hidden" name="avatar">
+            <div class="form-group">
+                <label for="phone">行動電話</label>
+                <% if(data.phone=="") data.phone='無'%>
+                <div>
+                    <%= data.phone %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <% if(data.email=="") data.email='無'%>
+                <div>
+                    <%= data.email %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="line">Line ID</label>
+                <% if(data.line=="") data.line='無'%>
+                <div>
+                    <%= data.line %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inlineFormInputGroup">Telegram</label>
+                <% if(data.telegram=="") data.telegram='無'
+                else data.telegram = '@'+data.telegram%>
+                <div>
+                    <%= data.telegram %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="facebook">Facebook</label>
+                <% if(data.facebook!="") data.facebook = 'https://www.facebook.com/'+data.facebook %>
+                <a href="<%= data.facebook %>">
+                    <div>
+                        <% if (data.facebook=="") data.facebook = '無'%>
+                        <%= data.facebook %>
+                </a>
+            </div>
         </div>
     </div>
+    </div>
+
 </body>
 
 </html>
