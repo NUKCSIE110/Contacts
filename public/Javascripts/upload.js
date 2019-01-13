@@ -9,19 +9,27 @@ var config = {
   };
 firebase.initializeApp(config);
 
-var database=firebase.database().ref('Product/Product1');
+var database=firebase.database().ref('Product/Product1/1');
 
 var name=document.querySelector(".Pname");
 var contact=document.querySelector(".Contact");
 var price=document.querySelector(".Price");
 var btn=document.querySelector(".Upload");
+console.log(btn);
 
-btn.addEventListener("click",up);
+btn.addEventListener('click',function(){
+    database.push({
+        "name":name.value,
+        "contact":contact.value,
+        "price":price.value
+    })
+})
 
 function up(){
     database.push({
-        "name":name.value;
-        "contact":contact.value;
-        "price":price.value;
+        "name":name.value,
+        "contact":contact.value,
+        "price":price.value
     })
+    
 }
