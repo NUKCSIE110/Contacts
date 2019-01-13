@@ -12,6 +12,7 @@ nav{
     display: flex;
 }
 nav div div {
+    cursor: pointer;
     display:inline-block;
     padding: 20px;
     font-family: 'SF Pro Display';
@@ -23,7 +24,7 @@ nav div div {
     height: 79vh;
     position: absolute;
     left: 40px;
-    border-radius:40px 0px 40px 40px;
+    border-radius:40px 20px 40px 40px;
     background-color:rgb(90, 90, 90,.75);
     
     /* border-color:#aaaaee;
@@ -39,6 +40,7 @@ nav div div {
     padding-right: 17px;
 }
 .select div{
+    cursor: pointer;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     margin-left: 20px;
@@ -63,13 +65,14 @@ nav div div {
 .box div{
     position: relative;
     width: 12vw;
-    height: 30vh;
+    height: 25vh;
     background-color: rgba(90, 90, 90, 0.75);
-    margin: 20px;
-    border-color:#aaaaee;
+    margin-top:20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-color:rgba(112, 112, 112);
     border-width:1px;
     border-style:solid;
-    margin: 20px;
 }
 .box div div{
     position: absolute;
@@ -80,8 +83,31 @@ nav div div {
     font-family: 'SF Pro Display';
     color: white;
     text-align: center;
-    border-color:#aaaaee;
+    border-color:rgba(112, 112, 112);
+    cursor: pointer;
     border-width:1px;
     border-style:solid;
     margin: 0px;
+}
+.line{
+    margin-left:100px;
+    margin-right:100px;
+    margin-top:20px;
+    display: flex;
+    justify-content: space-between;
+}
+.line div{
+    position: relative;
+    width: 12vw;
+    height: 2vh;
+    background-color: rgba(90, 90, 90, 0);
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
+    border-width:1px;
+    border-style:solid;
+    border-top-color: rgba(90, 90, 90, 0);
+    border-left-color: rgba(90, 90, 90, 0);
+    border-right-color: rgba(90, 90, 90, 0);
+    border-bottom-color: rgba(112, 112, 112)
 }
