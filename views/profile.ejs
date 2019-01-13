@@ -14,8 +14,10 @@
     <nav>
         <img src='/images/logo.png' class="logo">
         <div>
-            <div class="username"><%= stuid %></div>
-            <div class="signout">Signout</div>
+            <div class="Username">
+                <a href="/profile/<%= stuid %>"><%= stuid %></a>
+            </div>
+            <div class="Signout"><a href="/signout">Signout</a></div>
         </div>
     </nav>
     <div class="select">
