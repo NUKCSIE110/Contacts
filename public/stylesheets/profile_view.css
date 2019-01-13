@@ -34,8 +34,18 @@ nav div div {
 .folder .avatar {
     flex:1;
     display: flex;
+    justify-content:space-between; 
     flex-direction:column; 
     margin: 10px;
+}
+
+.data {
+    display:block;
+    margin:20px auto 0 auto;
+}
+
+.name, .grade{
+    text-align: center;
 }
 
 .folder .imgback {
@@ -46,19 +56,20 @@ nav div div {
     background-clip: content-box;
     background-size: contain;
     width: 100%;
-    height: 75%;
+    height: 80%;
 }
 
 .folder .imgback img {
+    object-fit: cover;
+    background: white;
+    width: 80%;
+    height: 90%;
     border-radius: 50%;
-    width: auto;
-	height: auto;
-	max-width: 75%;
-	max-height: 100%;
 }
 
 .folder .inputs {
     flex:2;
+    overflow:visible;
     margin:10px;
 }
 

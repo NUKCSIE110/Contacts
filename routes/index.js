@@ -5,6 +5,10 @@ var google = require('googleapis').google
 var plus = google.plus('v1');
 var oauth2 = google.auth.OAuth2
 var firebase = require('firebase')
+var imgur = require('imgur')
+imgur.setClientId('3f0312bbb4f882d');
+imgur.setAPIUrl('https://api.imgur.com/3/');
+imgur.getAPIUrl();
 var config = {
   apiKey: process.env.firebase_apikey,
   authDomain: "nuk-contacts.firebaseapp.com",
@@ -84,7 +88,7 @@ router.get('/loginCallback', function (req, res, next) {
             if (!snapshot.exists()) {
               db.ref(`/users/${stuid}`).set({
                 avatar: `https://api.adorable.io/avatars/400/${email.split('@')[0]}.png`,
-                email:'',
+                email: '',
                 facebook: '',
                 grade: parseInt(email.slice(1, 4)) + 4,
                 line: '',
@@ -95,14 +99,7 @@ router.get('/loginCallback', function (req, res, next) {
             } else {
               let data = snapshot.val()
               console.log(data)
-              session['avatar'] = data.avatar
-              session['email'] = data.email
-              session['facebook'] = data.facebook
-              session['grade'] = data.grade
-              session['line'] = data.line
               session['name'] = data.name
-              session['phone'] = data.phone
-              session['telegram'] = data.telegram
               session.save()
             }
           })
@@ -126,9 +123,9 @@ router.get('/loginCallback', function (req, res, next) {
   });
 });
 
-router.get('/logout',(req,res,next)=>{
+router.get('/logout', (req, res, next) => {
   req.session.destroy()
-  res.render('logout',{
+  res.render('logout', {
     title: '登出成功 - 高大資工系友交流平臺',
     href: 'login',
     status: 'success',
@@ -138,10 +135,19 @@ router.get('/logout',(req,res,next)=>{
 
 router.get('/profile', (req, res, next) => {
   if (req.session['stuid'] != undefined) {
-    console.log(req.session)
-    res.render('profile', {
-      title: '資料 - 高大資工系友交流平臺',
-      name: req.session['name']
+    var page = req.query['p']
+    if (page === undefined) page = 1
+    db.ref('/users/').once('value',snapshot=>{
+      console.log(page)
+      var data = snapshot.val()
+      console.log(Object.keys(data).length)
+      for (let index in data) {
+        console.log(index,data[index])
+      }
+      res.render('profile', {
+        title: '資料 - 高大資工系友交流平臺',
+        name: req.session['name']
+      })
     })
   } else {
     res.redirect(302, '/login')
@@ -152,8 +158,8 @@ router.get('/profile', (req, res, next) => {
 router.get('/profile/*', (req, res, next) => {
   if (req.session['stuid'] != undefined) {
     console.log(req.url)
-    db.ref(`/users/${req.url.split('/')[2]}`).once('value',snapshot=>{
-      if(snapshot.exists()){
+    db.ref(`/users/${req.url.split('/')[2]}`).once('value', snapshot => {
+      if (snapshot.exists()) {
         let data = snapshot.val()
         if (req.session['stuid'] === req.url.split('/')[2]) res.render('profile_self', {
           title: '資料 - 高大資工系友交流平臺',
@@ -165,7 +171,7 @@ router.get('/profile/*', (req, res, next) => {
           name: req.session['name'],
           data: data
         })
-      } else res.send(404,'Not Found')
+      } else res.send(404)
     })
   } else {
     res.redirect(302, '/login')
@@ -173,10 +179,49 @@ router.get('/profile/*', (req, res, next) => {
   }
 })
 
-router.post('/profile/edit',(req,res,next)=>{
-  console.log(req.body)
-  res.redirect(302,`/profile/${req.session['stuid']}`)
-  res.send()
+router.post('/profile/*', (req, res, next) => {
+  if (req.session['stuid'] != undefined) {
+    console.log(req.url)
+    db.ref(`/users/${req.url.split('/')[2]}`).once('value', snapshot => {
+      if (snapshot.exists()) {
+        let data = snapshot.val()
+        res.send(200,data)
+      } else res.send(404)
+    })
+  } else {
+    res.send(403)
+  }
+})
+
+router.post('/profile/edit', (req, res, next) => {
+  var session = req.session
+  if (session['stuid'] === undefined) {
+    res.send(403)
+  } else {
+    if (req.body.avatar != '') imgur.uploadBase64(req.body.avatar)
+      .then(function (json) {
+        var update_obj = {
+          ...req.body,
+          avatar: json.data.link
+        }
+        console.log(update_obj)
+        db.ref(`/users/${req.session['stuid']}`).update(update_obj)
+        res.redirect(303, `/profile/${req.session['stuid']}`)
+        res.send()
+      })
+      .catch(function (err) {
+        res.send(500)
+        console.error(err.message);
+      });
+    else {
+      var update_obj = req.body
+      delete update_obj['avatar']
+      console.log(update_obj)
+      db.ref(`/users/${req.session['stuid']}`).update(update_obj)
+      res.redirect(303, `/profile/${req.session['stuid']}`)
+      res.send()
+    }
+  }
 })
 
 router.get("/event", (req, res) => {
@@ -220,6 +265,13 @@ router.get("/attempt", (req, res) => {
     title: '參加活動',
     stuid: req.session['stuid']
   })
+})
+
+router.get("/zuopu", (req, res) =>{
+  res.render('zuopu', {
+    title: '族譜',
+    stuid: req.session['stuid'],
+  })  
 })
 
 module.exports = router;

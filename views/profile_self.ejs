@@ -23,6 +23,30 @@
 </head>
 
 <body>
+    <script type="text/javascript">
+        window.onload = function () {
+            var upload_avatar = document.getElementById("upload_avatar");
+            upload_avatar.addEventListener('change', readFile, false);
+        }
+
+        function readFile() {
+            var file = this.files[0];
+            if (file.type.split('/')[0] != 'image') {
+                alert('選擇的檔案並非圖片檔！');
+                return false;
+            }
+            if (file.size / 1024 / 1024 > 10) {
+                alert('請選擇小於10M的檔案')
+                return false
+            }
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function () {
+                document.querySelector('.imgback img').src = this.result
+                document.querySelector('#upload_avatar_base64').value = this.result.split(',')[1]
+            }
+        }
+    </script>
     <nav>
         <img src='/images/logo.png' class="logo">
         <div>
@@ -38,41 +62,53 @@
         <div class="event"><a href="/event">聚會聚起來!</a></div>
         <div class="twohand"><a href="/twohand">二手市集</a></div>
     </div>
-    <div>
-        <form class='folder' action="./edit" method="POST">
-            <div class="avatar">
-                <div class="imgback">
-                    <img class="card-img-top" src="https://i.imgur.com/gwRwn2m.png" alt="Card image cap">
-                </div>
-                <div class="form-group">
-                    <label for="upload_avatar">上傳新大頭貼</label>
-                    <input type="file" name="avatar" class="form-control-file" id="upload_avatar">
-                </div>
+    <div class='folder'>
+        <div class="avatar">
+            <div class="imgback">
+                <img class="card-img-top" src="<%= data.avatar %>" alt="Card image cap">
             </div>
-            <div class="inputs">
+            <div class="form-group">
+                <label for="upload_avatar">上傳新大頭貼</label>
+                <input type="file" class="form-control-file" id="upload_avatar">
+            </div>
+        </div>
+        <div class="inputs">
+            <form action="./edit" method="POST">
+                <input id="upload_avatar_base64" type="hidden" name="avatar">
+                <div class="form-group">
+                    <label for="phone">行動電話</label>
+                    <input type="phone" name="phone" class="form-control" id="phone" placeholder="輸入行動電話" value="<%= data.phone %>">
+                </div>
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp"
-                        placeholder="輸入 email">
+                        placeholder="輸入 email" value="<%= data.email %>">
+                </div>
+                <div class="form-group">
+                    <label for="line">Line ID</label>
+                    <input type="line" name="line" class="form-control" id="line" placeholder="輸入行動電話" value="<%= data.line %>">
                 </div>
                 <label for="inlineFormInputGroup">Telegram</label>
                 <div class="input-group mb-2">
                     <div class="input-group-prepend">
                         <div class="input-group-text">@</div>
                     </div>
-                    <input type="text" name="telegram" class="form-control" id="inlineFormInputGroup" placeholder="Telegram Username">
+                    <input type="text" name="telegram" class="form-control" id="inlineFormInputGroup" placeholder="Telegram Username"
+                        value="<%= data.telegram %>">
                 </div>
                 <label for="facebook">Facebook</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="facebook">https://www.facebook.com/</span>
                     </div>
-                    <input type="text" class="form-control" name="facebook" id="facebook" aria-describedby="facebook">
+                    <input type="text" class="form-control" name="facebook" id="facebook" aria-describedby="facebook"
+                        value="<%= data.facebook %>">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
+
 </body>
 
 </html>

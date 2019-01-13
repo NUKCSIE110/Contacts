@@ -1,0 +1,117 @@
+body {
+    background: linear-gradient(rgba(0, 0, 0, .32), rgba(0, 0, 0, .32)), url('/images/cb-colour-nightsky.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    overflow-x: hidden;
+    margin:0px;
+}
+nav{
+    margin: 10px 10px 20px 10px;
+    justify-content: space-between;
+    display: flex;
+}
+nav div div {
+    display:inline-block;
+    padding: 20px;
+    font-family: 'SF Pro Display';
+    color:white;
+    font-size: 35px;
+}
+.select{
+    margin: 0 5%;
+    font-family: 'Ink Free';
+    color: white;
+    font-size: 29px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 80px;
+}
+.select div{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-left: 20px;
+    margin-right:20px; 
+    background-color:rgba(90, 90, 90, 0.75); 
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+.Zuopu{
+    margin-top: -20px;
+}
+.logo{
+    width: 25%;
+    height: 25%;
+}
+
+.folder{
+    height: 70vh;
+    margin : 0 5%;
+    border-radius: 40px;
+    background-color: rgba(90, 90, 90, 0.75);
+    /*display: flex;*/
+    overflow: auto;
+}
+
+.folder::-webkit-scrollbar { 
+    display: none; 
+}
+
+.container{
+    /*position: relative;
+    margin-top: calc(50% - 210px);*/
+    padding: 0 200px;
+    display: flex;
+    align-items: flex-end;
+}
+.container::before{
+    content:"";
+    display: block;
+    height: 70vh;
+}
+
+.family{
+    display: inline-block;
+    margin: 5px;
+}
+
+.family div{
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    transition: 0.1s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.family div:hover{
+    border: solid 1px steelblue;
+}
+
+.baseNode{
+    background-color: #FFFFFFFA;
+}
+
+.upperNode{
+    /*margin: -205px 0 5px 0;*/
+    background-color: #f0f0f0;
+    animation: showUp 1s 1;
+    position: relative;
+}
+
+@keyframes showUp{
+    0%{
+        height:0px;
+        transform: scaleY(0)
+    };
+    100%{
+        height: 200px;
+        transform: scale(1)
+    };
+}
