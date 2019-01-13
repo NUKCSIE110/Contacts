@@ -91,6 +91,10 @@ nav div div {
     border: solid 1px steelblue;
 }
 
+.family div img{
+    object-fit: cover;
+}
+
 .baseNode{
     background-color: #FFFFFFFA;
 }
