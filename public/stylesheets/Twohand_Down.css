@@ -109,3 +109,6 @@ nav div div {
     border-right-color: rgba(90, 90, 90, 0);
     border-bottom-color: rgba(112, 112, 112)
 }
+a{
+    color: white;
+}
