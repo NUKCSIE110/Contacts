@@ -22,27 +22,26 @@ nav div div {
     display: flex;
     justify-content: space-around;
     background-color: rgba(90, 90, 90, 0.75);
-    width: 95vw;
+    width: 94vw;
     height: 79vh;
     left: 40px;
-    border-radius:40px 40px 40px 40px;
+    border-radius:40px 0px 40px 40px;
     background-color:rgb(90, 90, 90,.75);
 }
 .select{
-    margin: 0 5%;
-    font-family: 'Ink Free';
+    margin-top:25px; 
     color: white;
-    font-size: 29px;
+    font-size: 25px;
     display: flex;
     justify-content: flex-end;
-    padding-right: 80px;
+    padding-right: 17px;
 }
 .select div{
     cursor: pointer;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     margin-left: 20px;
-    margin-right:20px; 
+    margin-right:18px; 
     background-color:rgba(90, 90, 90, 0.75); 
     padding-left: 10px;
     padding-right: 10px;
