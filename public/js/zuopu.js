@@ -35,10 +35,7 @@ class family{
         this.addUpper = this.addUpper.bind(this);
         this.baseNode.addEventListener('click', this.toggleExpand);
         $.post(`/profile/a${this.grade}${5500+this.id}`, (function(data){
-            this.baseNode.style.backgroundImage=`url("${data.avatar}")`;
-            this.baseNode.style.backgroundClip="contain";
-            this.baseNode.innerText="";
-            console.log(data)
+            this.baseNode.innerHTML=`<img src="${data.avatar}">`;
         }).bind(this), 'json');        
         this.upperNode = [];
         this.family.appendChild(this.baseNode);
@@ -52,8 +49,7 @@ class family{
     addUpper(data){
         let newUpper = document.createElement('div');
         newUpper.classList.add('upperNode');
-        newUpper.style.backgroundImage=`url("${data.avatar}")`;
-        newUpper.style.backgroundClip="contain";
+        newUpper.innerHTML=`<img src="${data.avatar}">`;
         this.upperNode.push(newUpper);
     }
     toggleExpand(){
