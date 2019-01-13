@@ -1,4 +1,5 @@
 // Initialize Firebase
+var firebase = require('firebase');
 var config = {
     apiKey: "AIzaSyDnptdEc3-McxxtU4wjzz8OJA0N-fH2rXo",
     authDomain: "productupload-dc9a2.firebaseapp.com",
@@ -7,7 +8,7 @@ var config = {
     storageBucket: "productupload-dc9a2.appspot.com",
     messagingSenderId: "226606373241"
   };
-firebase.initializeApp(config);
+  firebase.initializeApp(config);
 
 var database=firebase.database().ref('Product/Product1');
 
@@ -16,12 +17,12 @@ var contact=document.querySelector(".Contact");
 var price=document.querySelector(".Price");
 var btn=document.querySelector(".Upload");
 
-btn.addEventListener("click",up);
-
-function up(){
+btn.addEventListener("click",function(){
+    console.log('123')
     database.push({
-        "name":name.value;
-        "contact":contact.value;
-        "price":price.value;
+        "name":name.value,
+        "contact":contact.value,
+        "price":price.value,
     })
-}
+});
+
