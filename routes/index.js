@@ -18,8 +18,8 @@ var config = {
 };
 var clientid = process.env.clientid
 var clientsecret = process.env.clientsecret
-// var redirection = 'http://nuk-csie-contacts.herokuapp.com/loginCallback'
-var redirection = 'http://localhost/loginCallback'
+var redirection = 'http://nuk-csie-contacts.herokuapp.com/loginCallback'
+// var redirection = 'http://localhost/loginCallback'
 firebase.initializeApp(config);
 console.log(clientid, clientsecret)
 var db = firebase.database();
