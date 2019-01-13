@@ -155,5 +155,11 @@ router.get("/establish", (req, res) => {
     stuid: req.session['stuid']
   })
 })
+router.get("/attempt", (req, res) => {
+  res.render('attempt', {
+    title: '參加活動',
+    stuid: req.session['stuid']
+  })
+})
 
 module.exports = router;
