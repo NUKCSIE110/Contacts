@@ -3,7 +3,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    overflow-x: hidden;
+    overflow: hidden;
     font-family: 'Thasadith', 'Noto Sans TC', sans-serif;
 }
 
@@ -63,14 +63,22 @@ nav div div {
 }
 
 .folder .card-deck .card .imgback {
-    background: url("/images/avatar_border.svg") center no-repeat;
-    width: fit-content;
-    background-size: 60%;
+    display: flex;
+    background: url(/images/avatar_border.svg) center no-repeat;
+    justify-content: center;
+    align-items: center;
+    background-clip: content-box;
+    background-size: contain;
+    width: 100%;
+    height: 80%;
 }
 
 .folder .card-deck .card img {
+    object-fit: cover;
+    background: white;
     border-radius: 50%;
-    width: 50%;
+    width: 10vw;
+    height: 10vw;
     margin: 5% 25%;
 }
 
@@ -87,24 +95,24 @@ nav div div {
     margin: 0;
 }
 
-.select {
-    margin: 0 5%;
+.select{
     color: white;
-    height: 1.8em;
-    font-size: 1.8em;
+    font-size: 25px;
     display: flex;
     justify-content: flex-end;
+    margin: 0 5%;
 }
-
-.select div {
+.select div{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    margin-left: 20px;
-    background-color: rgba(90, 90, 90, 0.75);
+    text-align: center;
+    margin-left: 40px;
+    min-width: 6em;
+    background-color:rgba(90, 90, 90, 0.75); 
     padding-left: 10px;
     padding-right: 10px;
+    padding-top: 10px;
 }
-
 .logo {
     width: 25%;
     height: 25%;

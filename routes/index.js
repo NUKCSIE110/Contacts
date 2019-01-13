@@ -8,7 +8,6 @@ var firebase = require('firebase')
 var imgur = require('imgur')
 imgur.setClientId('3f0312bbb4f882d');
 imgur.setAPIUrl('https://api.imgur.com/3/');
-imgur.getAPIUrl();
 var config = {
   apiKey: process.env.firebase_apikey,
   authDomain: "nuk-contacts.firebaseapp.com",
@@ -19,7 +18,7 @@ var config = {
 };
 var clientid = process.env.clientid
 var clientsecret = process.env.clientsecret
-var redirection = 'http://localhost/loginCallback'
+var redirection = 'http://nuk-csie-contacts.herokuapp.com/loginCallback'
 firebase.initializeApp(config);
 console.log(clientid, clientsecret)
 var db = firebase.database();
@@ -135,10 +134,31 @@ router.get('/logout', (req, res, next) => {
 
 router.get('/profile', (req, res, next) => {
   if (req.session['stuid'] != undefined) {
-    console.log(req.session)
-    res.render('profile', {
-      title: '資料 - 高大資工系友交流平臺',
-      name: req.session['name']
+    var page = req.query['p']
+    if (page === undefined) page = 1
+    db.ref('/users/').once('value',snapshot=>{
+      console.log(page)
+      var data = snapshot.val()
+      var data_arr = new Array
+      var length = Object.keys(data).length
+      for (let index in data) {
+        data_arr.push({stu:index,...data[index]})
+      }
+      // if (length < 8) {
+      //   for(let i = 8 ; i>0 ; i--){
+      //     data_arr.push({
+      //       avatar:'',
+      //       name:'',
+      //       stu:''
+      //     })
+      //   }
+      // }
+        console.log(data_arr)
+        res.render('profile', {
+        title: '資料 - 高大資工系友交流平臺',
+        name: req.session['name'],
+        arr:data_arr
+      })
     })
   } else {
     res.redirect(302, '/login')
@@ -198,6 +218,20 @@ router.post('/profile/edit', (req, res, next) => {
       res.redirect(303, `/profile/${req.session['stuid']}`)
       res.send()
     }
+  }
+})
+
+router.post('/profile/*', (req, res, next) => {
+  if (req.session['stuid'] != undefined) {
+    console.log(req.url)
+    db.ref(`/users/${req.url.split('/')[2]}`).once('value', snapshot => {
+      if (snapshot.exists()) {
+        let data = snapshot.val()
+        res.send(200,data)
+      } else res.send(404)
+    })
+  } else {
+    res.send(403)
   }
 })
 
