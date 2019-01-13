@@ -4,20 +4,18 @@ body {
     background-attachment: fixed;
     background-position: center;
     overflow-x: hidden;
-    margin:0px;
+    font-family: 'Thasadith','Noto Sans TC', sans-serif;
 }
 nav{
     margin: 10px 10px 20px 10px;
     justify-content: space-between;
-    display: flex;  
+    display: flex;
 }
 nav div div {
-    cursor: pointer;
     display:inline-block;
     padding: 20px;
-    font-family: 'SF Pro Display';
     color:white;
-    font-size: 35px;
+    font-size: 28px;
 }
 .folder{
     position: relative;
