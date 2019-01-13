@@ -16,6 +16,8 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
     <link rel=stylesheet type="text/css" href="/stylesheets/Twohand_Up.css">
     <title>Document</title>
 </head>
@@ -28,7 +30,7 @@
                 <a href="/profile/<%= stuid %>">
                     <%= stuid %></a>
             </div>
-            <div class="Signout"><a href="/signout">Signout</a></div>
+            <div class="signout"><a href="/logout" class="fas fa-door-open"></a></div>
         </div>
     </nav>
     <div class="select">
@@ -41,9 +43,9 @@
             <div class="UP_Button">上 傳 照 片</div>
         </div>
         <div class="spec">
-            <div>商品：<input type="text" placeholder="請輸入商品名稱"></div>
-            <div>聯絡：<input type="text" placeholder="請輸入聯絡方式"></div>
-            <div>售價：<input type="text" placeholder="請輸入價格"></div>
+            <div>商品：<input type="text" placeholder="請輸入商品名稱" class="Pname"></div>
+            <div>聯絡：<input type="text" placeholder="請輸入聯絡方式" class="Contact"></div>
+            <div>售價：<input type="text" placeholder="請輸入價格" class="Price"></div>
             <div>類別：
                 <select name="分類">
                     <option value="0" style="background:rgba(90, 90, 90, 0.75)">電器用品</option>
@@ -61,10 +63,23 @@
         </div>
         <div class="btn">
             <div class="Upload">上傳</div>
-            <div class="return">返回</div>
+            <div class="return"><a href="/twohand/market">返回</a></div>
         </div>
     </div>
-
+<script src="/Javascripts/upload.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDnptdEc3-McxxtU4wjzz8OJA0N-fH2rXo",
+    authDomain: "productupload-dc9a2.firebaseapp.com",
+    databaseURL: "https://productupload-dc9a2.firebaseio.com",
+    projectId: "productupload-dc9a2",
+    storageBucket: "productupload-dc9a2.appspot.com",
+    messagingSenderId: "226606373241"
+  };
+  firebase.initializeApp(config);
+</script>
 </body>
 
 </html>
