@@ -49,10 +49,12 @@ nav div div {
     padding-top: 10px;
 }
 .My_Product{
-    cursor: pointer;
-    margin-top: 10px;
-    height: 25px;
-    margin-right:124px;
+    margin-top:25px; 
+    color: white;
+    font-size: 25px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 17px;
 }
 .logo{
     width: 25%;
@@ -116,6 +118,8 @@ nav div div {
 .sort select{
     margin-left: 20px;
     margin-right: 20px;
+    width: 125px;
+    height: 50px;
     color: white;
     font-family: 'SF Pro Display';
     font-size: 25px;
@@ -124,9 +128,11 @@ nav div div {
     -webkit-border-radius: 5px;
     border-radius: 5px;
     border-width: 2px;
-    border-style: bold;
+    border-style: solid;
     border-color: rgba(112,112,112);
-    margin-top: 10px;
+    margin-top: 25px;
+
+    padding-right: 0px;
 }
 a{
     color: white;
