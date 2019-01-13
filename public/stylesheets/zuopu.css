@@ -30,7 +30,7 @@ nav div div {
 .select div{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    margin-right:20px; 
+    margin-left:20px; 
     background-color:rgba(90, 90, 90, 0.75); 
     padding-left: 10px;
     padding-right: 10px;
@@ -95,6 +95,8 @@ nav div div {
 
 .family div img{
     object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
 
 .baseNode{
