@@ -224,7 +224,8 @@ router.get("/attempt", (req, res) => {
 
 router.get("/zuopu", (req, res) =>{
   res.render('zuopu', {
-    title: '高大資工系友交流平臺'
+    title: '族譜',
+    stuid: req.session['stuid'],
   })  
 })
 

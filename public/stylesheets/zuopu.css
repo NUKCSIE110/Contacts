@@ -100,7 +100,7 @@ nav div div {
 
 .upperNode{
     /*margin: -205px 0 5px 0;*/
-    background-color: bisque;
+    background-color: #f0f0f0;
     animation: showUp 1s 1;
     position: relative;
 }
