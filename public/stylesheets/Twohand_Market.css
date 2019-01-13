@@ -51,6 +51,7 @@ nav div div {
     padding-top: 10px;
 }
 .My_Product{
+    cursor: pointer;
     margin-top: 10px;
     height: 25px;
     margin-right:124px;
