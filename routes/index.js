@@ -1,9 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Session = require('express-session')
-var {
-  google
-} = require('googleapis')
+var google = require('googleapis').google
 var plus = google.plus('v1');
 var oauth2 = google.auth.OAuth2
 var firebase = require('firebase')
@@ -15,9 +13,9 @@ var config = {
   storageBucket: "nuk-contacts.appspot.com",
   messagingSenderId: "432628078259"
 };
-const clientid = process.env.clientid
-const clientsecret = process.env.clientsecret
-const redirection = 'http://nuk-csie-contacts.herokuapp.com/loginCallback'
+var clientid = process.env.clientid
+var clientsecret = process.env.clientsecret
+var redirection = 'http://localhost/loginCallback'
 firebase.initializeApp(config);
 console.log(clientid, clientsecret)
 var db = firebase.database();
@@ -28,7 +26,7 @@ router.use(Session({
   saveUninitialized: true
 }));
 
-const getOAuthClient = () => new oauth2(clientid, clientsecret, redirection)
+var getOAuthClient = () => new oauth2(clientid, clientsecret, redirection)
 
 function getAuthurl() {
   var oauth2Client = getOAuthClient();
