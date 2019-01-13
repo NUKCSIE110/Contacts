@@ -49,6 +49,7 @@ nav div div {
     padding-top: 10px;
 }
 .My_Product{
+    cursor: pointer;
     margin-top:25px; 
     color: white;
     font-size: 25px;
