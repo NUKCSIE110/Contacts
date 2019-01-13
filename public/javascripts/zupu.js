@@ -1,24 +1,3 @@
-class card{
-    constructor(_contain, _className, _img, _text){
-        this.contain = _contain;
-        this.img = _img;
-        this.text = _text;
-        this.className = _className;
-        this.element = document.createElement('div');
-        this.element.classList.add(_className);
-        this.element.style.backgroundImage = `url("${this.img}")`;
-        this.element.innerText = this.text;
-
-        this.onClick = this.onClick.bind(this);
-        this.element.addEventListener('click', this.onClick);
-
-        this.contain.appendChild(this.element);
-    }
-    onClick(){
-
-    }
-}
-
 class family{
     constructor(_contian, _grade, _id){
         this.contain = _contian;
@@ -29,7 +8,6 @@ class family{
         this.family.classList.add('family');
         this.baseNode = document.createElement('div');
         this.baseNode.dataset.t = getName(`a${this.grade}${5500+this.id}`);
-        this.baseNode.dataset.b = 
         this.baseNode.classList.add('baseNode');
 
         this.toggleExpand = this.toggleExpand.bind(this);
@@ -54,6 +32,7 @@ class family{
         newUpper.classList.add('upperNode');
         newUpper.style.backgroundImage = `url("${getAvatar(`a${grade}${5500+this.id}`)}")`;
         newUpper.style.backgroundSize = "cover";
+        newUpper.dataset.t = getName(`a${this.grade}${5500+this.id}`);
         newUpper.addEventListener('click', (function(){
             window.location.href = `/profile/${this.url}`;
         }).bind({'url': `a${grade}${5500+this.id}`}));
