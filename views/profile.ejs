@@ -39,9 +39,9 @@
         <div><a href="/twohand/market">　二手市集　</a></div>
     </div>
     <div class='folder'>
-        <div id="pre">
+        <a href="?p=<%= pre %>" <% if (pre<1){ %> style="display:none;" <%}%> id="pre">
             <i class="fas fa-caret-left"></i>
-        </div>
+        </a>
         <div class="card-decks">
             <div class="card-deck">
                 <div class="card">
@@ -139,7 +139,7 @@
                     <% } %>
                 </div>
                 <div class="card">
-                    <% if (arr[7]!=undefined) { %><a href="/profile/<%=arr[7].stu%>"></a>
+                    <% if (arr[7]!=undefined) { %><a href="/profile/<%=arr[7].stu%>">
                     <div class="imgback"><img class="card-img-top" src="<%=arr[7].avatar%>" alt="Card image cap"></div>
                     <div class="card-body">
                         <h5 class="card-title">
@@ -152,9 +152,9 @@
                 </div>
             </div>
         </div>
-        <div id="next">
+        <a href="?p=<%= next %>" <% if (end){ %> style="display:none;" <%}%> id="next">
             <i class="fas fa-caret-right"></i>
-        </div>
+        </a>
     </div>
 </body>
 

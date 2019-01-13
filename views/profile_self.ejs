@@ -44,6 +44,7 @@
             reader.onload = function () {
                 document.querySelector('.imgback img').src = this.result
                 document.querySelector('#upload_avatar_base64').value = this.result.split(',')[1]
+                document.querySelector('#upload').className = 'btn btn-success btn-lg'
             }
         }
     </script>
@@ -67,10 +68,8 @@
             <div class="imgback">
                 <img class="card-img-top" src="<%= data.avatar %>" alt="Card image cap">
             </div>
-            <div class="form-group">
-                <label for="upload_avatar">上傳新大頭貼</label>
-                <input type="file" class="form-control-file" id="upload_avatar">
-            </div>
+            <input type="file" id="upload_avatar" hidden>
+            <button type="button" id="upload" class="btn btn-secondary btn-lg" onclick="document.querySelector('#upload_avatar').click()">選擇新大頭貼</button>
         </div>
         <div class="inputs">
             <form action="./edit" method="POST">
@@ -104,7 +103,7 @@
                     <input type="text" class="form-control" name="facebook" id="facebook" aria-describedby="facebook"
                         value="<%= data.facebook %>">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">更新</button>
             </form>
         </div>
     </div>
