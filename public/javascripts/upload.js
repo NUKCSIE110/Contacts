@@ -17,11 +17,10 @@ btn.addEventListener('click', function () {
     "contact": contact.value,
     "price": price.value,
     "option": option.value,
-    "picture": upphoto.src.split(",")[1]
+    "picture": upphoto.src.split
   };
   console.log(push_data)
   database.push(push_data, function(){window.location.assign("http://localhost/twohand/market");})
-  console.log(upphoto.src.split(",")[1]);
 })
 
 $("#uploadImage").change(function () {
