@@ -18,8 +18,8 @@ var config = {
 };
 var clientid = process.env.clientid
 var clientsecret = process.env.clientsecret
-//var redirection = 'http://nuk-csie-contacts.herokuapp.com/loginCallback'
-var redirection = 'http://localhost/loginCallback'
+var redirection = 'http://nuk-csie-contacts.herokuapp.com/loginCallback'
+// var redirection = 'http://localhost/loginCallback'
 firebase.initializeApp(config);
 console.log(clientid, clientsecret)
 var db = firebase.database();
@@ -53,7 +53,6 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/login', function (req, res, next) {
-  console.log(req.session["email"])
   res.render('login', {
     title: '登入 - 高大資工系友交流平臺',
     authUrl: getAuthurl()
@@ -98,7 +97,6 @@ router.get('/loginCallback', function (req, res, next) {
               })
             } else {
               let data = snapshot.val()
-              console.log(data)
               session['name'] = data.name
               session.save()
             }
@@ -111,7 +109,6 @@ router.get('/loginCallback', function (req, res, next) {
           })
         } else throw new Error('wrong email')
       }).catch(function (err) {
-        console.log(err)
         res.render('loginCallback', {
           title: '登入失敗 - 高大資工系友交流平臺',
           href: 'login',
@@ -137,28 +134,29 @@ router.get('/profile', (req, res, next) => {
   if (req.session['stuid'] != undefined) {
     var page = req.query['p']
     if (page === undefined) page = 1
+    else page = parseInt(page)
+    if (page === 0) page = 1
     db.ref('/users/').once('value',snapshot=>{
-      console.log(page)
+      var ifend = false
       var data = snapshot.val()
       var data_arr = new Array
       var length = Object.keys(data).length
       for (let index in data) {
         data_arr.push({stu:index,...data[index]})
       }
-      // if (length < 8) {
-      //   for(let i = 8 ; i>0 ; i--){
-      //     data_arr.push({
-      //       avatar:'',
-      //       name:'',
-      //       stu:''
-      //     })
-      //   }
-      // }
-        console.log(data_arr)
+      for(let i=1;i<page;i++){
+        if (data_arr.length > 8) for(let j = 0;j<8;j++) {
+           data_arr.shift()
+        }
+      }
+      if (data_arr.length <=8) ifend = true
         res.render('profile', {
         title: '資料 - 高大資工系友交流平臺',
         name: req.session['name'],
-        arr:data_arr
+        arr:data_arr,
+        next:page+1,
+        pre:page-1,
+        end:ifend
       })
     })
   } else {
@@ -169,7 +167,6 @@ router.get('/profile', (req, res, next) => {
 
 router.get('/profile/*', (req, res, next) => {
   if (req.session['stuid'] != undefined) {
-    console.log(req.url)
     db.ref(`/users/${req.url.split('/')[2]}`).once('value', snapshot => {
       if (snapshot.exists()) {
         let data = snapshot.val()
@@ -202,7 +199,6 @@ router.post('/profile/edit', (req, res, next) => {
           ...req.body,
           avatar: json.data.link
         }
-        console.log(update_obj)
         db.ref(`/users/${req.session['stuid']}`).update(update_obj)
         res.redirect(303, `/profile/${req.session['stuid']}`)
         res.send()
@@ -214,7 +210,6 @@ router.post('/profile/edit', (req, res, next) => {
     else {
       var update_obj = req.body
       delete update_obj['avatar']
-      console.log(update_obj)
       db.ref(`/users/${req.session['stuid']}`).update(update_obj)
       res.redirect(303, `/profile/${req.session['stuid']}`)
       res.send()
@@ -224,7 +219,6 @@ router.post('/profile/edit', (req, res, next) => {
 
 router.post('/profile/all', (req, res, next) => {
   if (req.session['stuid'] != undefined) {
-    console.log(req.url)
     db.ref(`/users/`).once('value', snapshot => {
       if (snapshot.exists()) {
         let data = snapshot.val()
