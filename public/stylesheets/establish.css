@@ -34,7 +34,6 @@ nav div div {
     font-size: 25px;
     display: flex;
     justify-content: flex-end;
-    padding-right: 15px;
 }
 .select div{
     border-top-left-radius: 10px;
