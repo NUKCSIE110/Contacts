@@ -67,6 +67,7 @@ nav div div {
     justify-content: space-between;
 }
 .box div{
+    cursor: pointer;
     position: relative;
     width: 12vw;
     height: 25vh;
