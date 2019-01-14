@@ -18,7 +18,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
         crossorigin="anonymous">
-    <link rel=stylesheet type="text/css" href="/stylesheets/twohand_up_kix.css">
+    <link rel=stylesheet type="text/css" href="/stylesheets/twohand_view.css">
     <script src="/javascripts/twohand_up.js" defer></script>
     <title>Document</title>
 </head>
@@ -42,18 +42,23 @@
     <div class='folder'>
         <div class="avatar">
             <div class="imgback">
-                <img class="card-img-top" src="/images/dino.png">
-            </div> <input type="file" id="upload_avatar" hidden>
-            <button type="button" id="upload" class="btn btn-secondary btn-lg" onclick="document.querySelector('#upload_avatar').click()">選擇商品照片</button>
+                <img class="card-img-top" src="<%= data.photo %>">
+            </div> 
         </div>
         <div class="inputs">
-            <form action="./upload" method="POST">
+                <h6>商品名稱</h6>
+                <h5><%=data.name%></h5>
+                <h6>商品價格</h6>
+                <h5>NT$ <%=data.price%></h5>
+                <h6>商品簡介</h6>
+                <p><%=data.desc%></p>
+                <h6>聯絡方式</h6>
+                <a href="/profile/<%=data.user%>">點此進入聯絡資訊</a>
+            <!-- <form action="./upload" method="POST">
                 <input id="photo_base64" type="hidden" name="photo">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon3">商品名稱</span>
                     </div>
-                    <input type="text" name="name" class="form-control" id="basic-url" aria-describedby="basic-addon3">
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -84,7 +89,7 @@
                     <textarea rows="8" name="desc" class="form-control" aria-label="With textarea"></textarea>
                 </div>
                 <a id="upload_form" class="btn btn-primary btn-lg btn-block">上架</a>
-            </form>
+            </form> -->
         </div>
     </div>
 

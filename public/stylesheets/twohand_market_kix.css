@@ -23,7 +23,7 @@ nav div div {
 .folder {
     display: flex;
     flex-direction: column;
-    height: 70vh;
+    height: 67vh;
     overflow: hidden;
     margin: 0 5%;
     border-radius: 40px 0 40px 40px;
@@ -62,7 +62,7 @@ nav div div {
     color: white;
 }
 
-/*
+
 .folder .card-decks {
     margin: auto;
     width: 95%;
@@ -83,7 +83,6 @@ nav div div {
 
 .folder .card-deck .card .imgback {
     display: flex;
-    background: url(/images/avatar_border.svg) center no-repeat;
     justify-content: center;
     align-items: center;
     background-clip: content-box;
@@ -95,10 +94,9 @@ nav div div {
 .folder .card-deck .card img {
     object-fit: cover;
     background: white;
-    border-radius: 50%;
+    border-radius: 15px;
     width: 10vw;
     height: 10vw;
-    margin: 5% 25%;
 }
 
 .card-deck {
@@ -111,9 +109,14 @@ nav div div {
 }
 
 .card-title {
-    margin: 0;
+    margin: 0 auto;
+    width: 10vw;
+    padding-bottom: 5px;
+    border-bottom: 1px solid white;
 }
-*/
+
+
+
 .select{
     color: white;
     font-size: 25px;

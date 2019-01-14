@@ -13,7 +13,7 @@
         crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
     <script>
-            // Initialize Firebase
+        // Initialize Firebase
         var config = {
             apiKey: "AIzaSyDnptdEc3-McxxtU4wjzz8OJA0N-fH2rXo",
             authDomain: "productupload-dc9a2.firebaseapp.com",
@@ -36,6 +36,8 @@
 </head>
 
 <body>
+    <span>
+        <%=arr[0].desc%></span>
     <nav>
         <img src='/images/logo.png' class="logo">
         <div>
@@ -54,17 +56,17 @@
     <div class='folder'>
         <div class="bar">
             <div class="dropdown">
-                    <select class="form-control" name="分類">
-                            <option value="0">全部商品</option>
-                            <option value="1">電器用品</option>
-                            <option value="2">3C產品</option>
-                            <option value="3">玩具玩偶</option>
-                            <option value="4">衣服</option>
-                            <option value="5">生活用品</option>
-                            <option value="6">文具用品</option>
-                            <option value="7">其他</option>
-                        </select>
-                <!--<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                <!-- <select class="form-control" name="分類">
+                    <option value="0">全部商品</option>
+                    <option value="1">電器用品</option>
+                    <option value="2">3C產品</option>
+                    <option value="3">玩具玩偶</option>
+                    <option value="4">衣服</option>
+                    <option value="5">生活用品</option>
+                    <option value="6">文具用品</option>
+                    <option value="7">其他</option>
+                </select> -->
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     選擇分類
                 </button>
@@ -77,13 +79,13 @@
                     <a class="dropdown-item" href="?c=6" value='5'>生活用品</a>
                     <a class="dropdown-item" href="?c=7" value='6'>文具用品</a>
                     <a class="dropdown-item" href="?c=8" value='7'>其他</a>
-                </div>-->
+                </div>
             </div>
             <div class="dropdown">
                 <a class="btn btn-primary" href="/twohand/down" role="button">我的商品</a>
             </div>
         </div>
-
+        <!-- 
         <div class="box">
             <div class="good">
                 <img src="" alt="">
@@ -117,8 +119,8 @@
                 <img src="" alt="">
                 <p></p>
             </div>
-        </div>
-        <!--<div class="view">
+        </div> -->
+        <div class="view">
             <a href="?p=<%= pre %>" <% if (pre<1){ %> style="display:none;"
                 <%}%> id="pre">
                 <i class="fas fa-caret-left"></i>
@@ -127,53 +129,51 @@
                 <div class="card-deck">
                     <div class="card">
                         <% if (arr[0]!=undefined) { %>
-                        <a href="/profile/<%=arr[0].stu%>">
-                            <div class="imgback"><img class="card-img-top" src="<%=arr[0].avatar%>" alt="Card image cap"></div>
+                        <a href="/twohand/market/<%=arr[0].key%>">
+                            <div class="imgback"><img class="card-img-top" src="<%=arr[0].photo%>" alt="Card image cap"></div>
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <%=arr[0].name%>
                                 </h5>
-                                <p class="card-text">
-                                    <%=arr[0].grade%>級</p>
+                                
+                                    
                             </div>
                         </a>
                         <% } %>
                     </div>
                     <div class="card">
-                        <% if (arr[1]!=undefined) { %> <a href="/profile/<%=arr[1].stu%>">
-                            <div class="imgback"><img class="card-img-top" src="<%=arr[1].avatar%>" alt="Card image cap"></div>
+                        <% if (arr[1]!=undefined) { %> <a href="/twohand/market/<%=arr[1].key%>">
+                            <div class="imgback"><img class="card-img-top" src="<%=arr[1].photo%>" alt="Card image cap"></div>
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <%=arr[1].name%>
                                 </h5>
-                                <p class="card-text">
-                                    <%=arr[1].grade%>級</p>
                             </div>
                         </a>
                         <% } %>
                     </div>
                     <div class="card">
-                        <% if (arr[2]!=undefined) { %> <a href="/profile/<%=arr[2].stu%>">
-                            <div class="imgback"><img class="card-img-top" src="<%=arr[2].avatar%>" alt="Card image cap"></div>
+                        <% if (arr[2]!=undefined) { %> <a href="/twohand/market/<%=arr[2].key%>">
+                            <div class="imgback"><img class="card-img-top" src="<%=arr[2].photo%>" alt="Card image cap"></div>
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <%=arr[2].name%>
                                 </h5>
-                                <p class="card-text">
-                                    <%=arr[2].grade%>級</p>
+                                
+                                    
                             </div>
                         </a>
                         <% } %>
                     </div>
                     <div class="card">
-                        <% if (arr[3]!=undefined) { %> <a href="/profile/<%=arr[3].stu%>">
-                            <div class="imgback"><img class="card-img-top" src="<%=arr[3].avatar%>" alt="Card image cap"></div>
+                        <% if (arr[3]!=undefined) { %> <a href="/twohand/market/<%=arr[3].key%>">
+                            <div class="imgback"><img class="card-img-top" src="<%=arr[3].photo%>" alt="Card image cap"></div>
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <%=arr[3].name%>
                                 </h5>
-                                <p class="card-text">
-                                    <%=arr[3].grade%>級</p>
+                                
+                                    
                             </div>
                         </a>
                         <% } %>
@@ -181,65 +181,65 @@
                 </div>
                 <div class="card-deck">
                     <div class="card">
-                        <% if (arr[4]!=undefined) { %> <a href="/profile/<%=arr[4].stu%>">
-                            <div class="imgback"><img class="card-img-top" src="<%=arr[4].avatar%>" alt="Card image cap"></div>
+                        <% if (arr[4]!=undefined) { %> <a href="/twohand/market/<%=arr[4].key%>">
+                            <div class="imgback"><img class="card-img-top" src="<%=arr[4].photo%>" alt="Card image cap"></div>
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <%=arr[4].name%>
                                 </h5>
-                                <p class="card-text">
-                                    <%=arr[4].grade%>級</p>
+                                
+                                    
                             </div>
                         </a>
                         <% } %>
                     </div>
                     <div class="card">
-                        <% if (arr[5]!=undefined) { %> <a href="/profile/<%=arr[5].stu%>">
-                            <div class="imgback"><img class="card-img-top" src="<%=arr[5].avatar%>" alt="Card image cap"></div>
+                        <% if (arr[5]!=undefined) { %> <a href="/twohand/market/<%=arr[5].key%>">
+                            <div class="imgback"><img class="card-img-top" src="<%=arr[5].photo%>" alt="Card image cap"></div>
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <%=arr[5].name%>
                                 </h5>
-                                <p class="card-text">
-                                    <%=arr[5].grade%>級</p>
+                                
+                                    
                             </div>
                         </a>
                         <% } %>
                     </div>
                     <div class="card">
-                        <% if (arr[6]!=undefined) { %> <a href="/profile/<%=arr[6].stu%>">
-                            <div class="imgback"><img class="card-img-top" src="<%=arr[6].avatar%>" alt="Card image cap"></div>
+                        <% if (arr[6]!=undefined) { %> <a href="/twohand/market/<%=arr[6].key%>">
+                            <div class="imgback"><img class="card-img-top" src="<%=arr[6].photo%>" alt="Card image cap"></div>
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <%=arr[6].name%>
                                 </h5>
-                                <p class="card-text">
-                                    <%=arr[6].grade%>級</p>
+                                
+                                    
                             </div>
                         </a>
                         <% } %>
                     </div>
                     <div class="card">
-                        <% if (arr[7]!=undefined) { %><a href="/profile/<%=arr[7].stu%>">
-                            <div class="imgback"><img class="card-img-top" src="<%=arr[7].avatar%>" alt="Card image cap"></div>
+                        <% if (arr[7]!=undefined) { %><a href="/twohand/market/<%=arr[7].key%>">
+                            <div class="imgback"><img class="card-img-top" src="<%=arr[7].photo%>" alt="Card image cap"></div>
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <%=arr[7].name%>
                                 </h5>
-                                <p class="card-text">
-                                    <%=arr[7].grade%>級</p>
+                                
+                                    
                             </div>
                         </a>
                         <% } %>
                     </div>
                 </div>
             </div>
-            <a href="?p=<%= next %>" <% if (end){ %> style="display:none;"
-                <%}%> id="next">
+            <a href="?p=<%= next %>" <% if (end){ %> style="display:none;"  <%}%> id="next">
                 <i class="fas fa-caret-right"></i>
             </a>
         </div>
-    </div>-->
+    </div>
     <script src='/javascripts/market.js'></script>
-    </body>
+</body>
+
 </html>

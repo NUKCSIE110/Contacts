@@ -14,7 +14,7 @@ database.on('value', function (snapshot) {
 
   snapshot.forEach(function (data) {
     allgoods.push(data.val());
-  });
+  }); 
   sorting();
 });
 

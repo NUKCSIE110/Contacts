@@ -80,6 +80,7 @@ router.get('/loginCallback', function (req, res, next) {
         });
       }).then(function (data) {
         let email = data.data.emails[0].value
+        console.log(email)
         if (email.slice(4, 6) == '55' && email.split('@')[1] == 'mail.nuk.edu.tw') {
           let stuid = email.split('@')[0]
           session["stuid"] = stuid
@@ -247,15 +248,52 @@ router.get("/event", (req, res) => {
 //   })
 // })
 router.get("/twohand/market", (req, res) => {
-  res.render('twohand_market_kix', {
-    title: '二手商場',
-    name: req.session['name'],
-    arr: new Array,
-    pre: 1,
-    next: 1,
-    end: false
+  var page = req.query['p']
+  if (page === undefined) page = 1
+  else page = parseInt(page)
+  if (page === 0) page = 1
+  var cata = req.query['c']
+  var ifend = false
+  db.ref('/market/').once('value', snapshot => {
+    var data_arr = new Array
+    snapshot.forEach(child => {
+      data_arr.push({
+        key: child.key,
+        ...child.val()
+      })
+    })
+    for (let i = 1; i < page; i++) {
+      if (data_arr.length > 8)
+        for (let j = 0; j < 8; j++) {
+          data_arr.shift()
+        }
+    }
+    if (data_arr.length <= 8) ifend = true
+    res.render('twohand_market_kix', {
+      title: '二手商場',
+      name: req.session['name'],
+      arr: data_arr,
+      next: page + 1,
+      pre: page - 1,
+      end: ifend
+    })
   })
 })
+
+router.get('/twohand/market/*', (req, res) => {
+  db.ref(`${req.url.split('twohand')[1]}`).once('value', snapshot => {
+    if(snapshot.exists()){
+      res.render('twohand_view',{
+        name : req.session['name'],
+        title : '查閱',
+        data : snapshot.val()
+      })
+    } else {
+      res.send(404)
+    }
+  })
+})
+
 router.get("/twohand/down", (req, res) => {
   res.render('twohand_down', {
     title: '下架商品',
@@ -285,6 +323,7 @@ router.post('/twohand/upload', async (req, res) => {
     .then(function (json) {
       var upload_obj = {
         ...req.body,
+        user: req.session['stuid'],
         photo: json.data.link
       }
       db.ref(`/market/${db.ref(`/users/${req.session['stuid']}/sales/`)

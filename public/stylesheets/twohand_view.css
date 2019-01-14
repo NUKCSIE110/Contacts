@@ -1,0 +1,120 @@
+body {
+    background: linear-gradient(rgba(0, 0, 0, .32), rgba(0, 0, 0, .32)), url('/images/cb-colour-nightsky.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    overflow-x: hidden;
+    font-family: 'Thasadith', 'Noto Sans TC', sans-serif;
+    overflow: hidden;
+}
+
+nav {
+    margin: 10px 10px 20px 10px;
+    justify-content: space-between;
+    display: flex;
+}
+
+nav div div {
+    display: inline-block;
+    padding: 20px;
+    color: white;
+    font-size: 35px;
+}
+
+.folder {
+    display: flex;
+    height: 70vh;
+    overflow: hidden;
+    margin: 0 5%;
+    padding: 2%;
+    border-radius: 40px 0 40px 40px;
+    background-color: rgba(90, 90, 90, 0.75);
+    color:white;
+}
+
+.folder .avatar {
+    flex:1;
+    display: flex;
+    justify-content:space-between; 
+    flex-direction:column; 
+    margin: 10px;
+}
+
+.data {
+    display:block;
+    margin:20px auto 0 auto;
+}
+
+.name, .grade{
+    text-align: center;
+}
+
+.folder .imgback {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-clip: content-box;
+    background-size: contain;
+    width: 100%;
+    height: 80%;
+}
+
+.folder .imgback img {
+    object-fit: cover;
+    background: white;
+    width: 20vw;
+    height: 20vw;
+    border-radius: 20px;
+}
+
+.folder .inputs {
+    flex:2;
+    overflow:visible;
+    margin:10px;
+}
+
+.folder .inputs form {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.select{
+    color: white;
+    font-size: 25px;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 5%;
+}
+.select div{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+    margin-left: 40px;
+    min-width: 6em;
+    background-color:rgba(90, 90, 90, 0.75); 
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+.logo {
+    width: 25%;
+    height: 25%;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.form-control{
+    color:white;
+    border:#6c757d;
+}
