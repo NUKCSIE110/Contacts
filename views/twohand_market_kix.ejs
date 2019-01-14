@@ -11,19 +11,6 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyDnptdEc3-McxxtU4wjzz8OJA0N-fH2rXo",
-            authDomain: "productupload-dc9a2.firebaseapp.com",
-            databaseURL: "https://productupload-dc9a2.firebaseio.com",
-            projectId: "productupload-dc9a2",
-            storageBucket: "productupload-dc9a2.appspot.com",
-            messagingSenderId: "226606373241"
-        };
-        firebase.initializeApp(config);
-    </script>
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC:700" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
@@ -36,8 +23,6 @@
 </head>
 
 <body>
-    <span>
-        <%=arr[0].desc%></span>
     <nav>
         <img src='/images/logo.png' class="logo">
         <div>
@@ -71,14 +56,14 @@
                     選擇分類
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="?c=1" value='0'>全部商品</a>
-                    <a class="dropdown-item" href="?c=2" value='1'>電器用品</a>
-                    <a class="dropdown-item" href="?c=3" value='2'>3C產品</a>
-                    <a class="dropdown-item" href="?c=4" value='3'>玩具玩偶</a>
-                    <a class="dropdown-item" href="?c=5" value='4'>衣服</a>
-                    <a class="dropdown-item" href="?c=6" value='5'>生活用品</a>
-                    <a class="dropdown-item" href="?c=7" value='6'>文具用品</a>
-                    <a class="dropdown-item" href="?c=8" value='7'>其他</a>
+                    <a class="dropdown-item" href="?" value='0'>全部商品</a>
+                    <a class="dropdown-item" href="?c=1" value='1'>電器用品</a>
+                    <a class="dropdown-item" href="?c=2" value='2'>3C產品</a>
+                    <a class="dropdown-item" href="?c=3" value='3'>玩具玩偶</a>
+                    <a class="dropdown-item" href="?c=4" value='4'>衣服</a>
+                    <a class="dropdown-item" href="?c=5" value='5'>生活用品</a>
+                    <a class="dropdown-item" href="?c=6" value='6'>文具用品</a>
+                    <a class="dropdown-item" href="?c=7" value='7'>其他</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -121,7 +106,7 @@
             </div>
         </div> -->
         <div class="view">
-            <a href="?p=<%= pre %>" <% if (pre<1){ %> style="display:none;"
+            <a href="?p=<%= pre %>" <% if (start){ %> style="display:none;"
                 <%}%> id="pre">
                 <i class="fas fa-caret-left"></i>
             </a>

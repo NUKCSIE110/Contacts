@@ -253,14 +253,24 @@ router.get("/twohand/market", (req, res) => {
   else page = parseInt(page)
   if (page === 0) page = 1
   var cata = req.query['c']
+  if (cata=='') cata = undefined
+  var ifstart = true
+  if (page != 1) ifstart = false
   var ifend = false
   db.ref('/market/').once('value', snapshot => {
     var data_arr = new Array
     snapshot.forEach(child => {
-      data_arr.push({
+      var data = child.val()
+        if (cata === undefined )data_arr.push({
         key: child.key,
-        ...child.val()
+        ...data
       })
+      else {
+        if (cata == data.cata) data_arr.push({
+          key: child.key,
+          ...data
+        })
+      }
     })
     for (let i = 1; i < page; i++) {
       if (data_arr.length > 8)
@@ -273,8 +283,9 @@ router.get("/twohand/market", (req, res) => {
       title: '二手商場',
       name: req.session['name'],
       arr: data_arr,
-      next: page + 1,
-      pre: page - 1,
+      next: (page + 1)+'&c='+((cata==undefined)?'':cata),
+      pre: (page - 1)+'&c='+((cata==undefined)?'':cata),
+      start:ifstart,
       end: ifend
     })
   })
@@ -295,11 +306,56 @@ router.get('/twohand/market/*', (req, res) => {
 })
 
 router.get("/twohand/down", (req, res) => {
-  res.render('twohand_down', {
-    title: '下架商品',
-    stuid: req.session['stuid']
+  var page = req.query['p']
+  if (page === undefined) page = 1
+  else page = parseInt(page)
+  if (page === 0) page = 1
+  var ifstart = true
+  if (page != 1) ifstart = false
+  var ifend = false
+  db.ref(`/users/${req.session['stuid']}/sales/`).once('value', snapshot => {
+    var data_arr = new Array
+    snapshot.forEach(child => {
+      var data = child.val()
+        data_arr.push({
+        key: child.key,
+        ...data
+      })
+    })
+    for (let i = 1; i < page; i++) {
+      if (data_arr.length > 8)
+        for (let j = 0; j < 8; j++) {
+          data_arr.shift()
+        }
+    }
+    if (data_arr.length <= 8) ifend = true
+    res.render('twohand_down_kix', {
+      title: '二手商場',
+      name: req.session['name'],
+      arr: data_arr,
+      next: (page + 1),
+      pre: (page - 1),
+      start:ifstart,
+      end: ifend
+    })
   })
 })
+
+router.post('/twohand/delete',(req,res)=>{
+  db.ref(`/market/${req.body['selection']}`).remove().then(()=>{
+    db.ref(`/users/${req.session['stuid']}/sales/${req.body['selection']}`).remove().then(()=>{
+      res.redirect(303,'/twohand/down')
+      res.send()
+    })
+  })
+})
+
+// router.get("/twohand/down", (req, res) => {
+//   res.render('twohand_down', {
+//     title: '下架商品',
+//     stuid: req.session['stuid']
+//   })
+// })
 // router.get("/twohand/up", (req, res) => {
 //   res.render('twohand_up', {
 //     title: '上架商品',
