@@ -18,8 +18,8 @@ var config = {
 };
 var clientid = process.env.clientid
 var clientsecret = process.env.clientsecret
-var redirection = 'https://nuk-csie-contacts.herokuapp.com/loginCallback'
-// var redirection = 'http://localhost/loginCallback'
+//var redirection = 'https://nuk-csie-contacts.herokuapp.com/loginCallback'
+var redirection = 'http://localhost/loginCallback'
 firebase.initializeApp(config);
 console.log(clientid, clientsecret)
 var db = firebase.database();
@@ -276,7 +276,7 @@ router.get("/attempt", (req, res) => {
 router.get("/zupu", (req, res) =>{
   if (req.session['stuid'] != undefined) {
     res.render('zupu', {
-      title: '族譜',
+      title: '祖譜',
       stuid: req.session['stuid'],
       name: req.session['name'],
     })

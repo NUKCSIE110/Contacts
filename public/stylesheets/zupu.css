@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 body {
     background: linear-gradient(rgba(0, 0, 0, .32), rgba(0, 0, 0, .32)), url('/images/cb-colour-nightsky.jpg');
     background-size: cover;
@@ -5,6 +9,7 @@ body {
     background-position: center;
     overflow: hidden;
     font-family: 'Thasadith', 'Noto Sans TC', sans-serif;
+    margin:0;
 }
 
 nav {
@@ -76,6 +81,9 @@ a:hover {
     padding: 0 200px;
     display: flex;
     align-items: flex-end;
+}
+.container:hover{
+    cursor: pointer;
 }
 .container::before{
     content:"";
