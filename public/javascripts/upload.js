@@ -27,7 +27,6 @@ btn.addEventListener('click', function () {
 $("#uploadImage").change(function () {
   readImage(this);
 });
-
 function readImage(input) {
   if (input.files && input.files[0]) {
       var FR = new FileReader();
