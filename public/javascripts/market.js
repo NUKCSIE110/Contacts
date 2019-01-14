@@ -12,43 +12,53 @@ var j = 0;
 var allgoods = [];
 
 database.on('value', function (snapshot) {
-  var str = [];
-  var str2 = '';
-  var pics = [];
-  var str3 = '';
+
   snapshot.forEach(function (data) {
     allgoods.push(data.val());
-    /*for (var details in data.val()) {
-      if (details == 'name') {
-        str2 += data.val()[details] + ',';
-        count++;
-      }
-      else if (details == 'picture') {
-        str3 += data.val()[details] + '*';
-        count1++;
-      }
-    }*/
-  })
+  });
   /*for (var i = 0; i < count; i++) {
     str[i] = str2.split(",")[i];
   }
   for (var i = 0; i < count1; i++) {
     pics[i] = '<img src="' + str3.split("*")[i] + '">';
   }
-  for (var n of pic) {
-    if (pics[k] == undefined) {
-      continue;
+  for (var i = 0; i < count2; i++) {
+    opt[i] = str4.split("*")[i];
+  }
+  if(sel.value == '0'){
+    for (var n of pic) {
+      if (pics[k] == undefined) {
+        k++;
+        continue;
+      }
+      else {
+        n.innerHTML = pics[k];
+        k++;
+      }
     }
-    else {
-      n.innerHTML = pics[k];
-      k++;
+    for (var l of line) {
+      l.textContent = str[j];
+      j++;
     }
   }
+<<<<<<< HEAD
   for (var l of line) {
     l.textContent = str[j];
     j++;
   }*/
   sorting();
+  // for (var o in option) {
+  //   if (sel == opt[m]) {
+  //     if (pics[m] == undefined) {
+  //       continue;
+  //     }
+  //     else {
+  //       o.innerHTML = pics[m];
+  //       o.textContent = str[m];
+  //       m++;
+  //     }
+  //   }
+  // }
 });
 
 function sorting(){
