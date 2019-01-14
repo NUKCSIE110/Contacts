@@ -73,6 +73,13 @@ nav div div {
     margin:10px;
 }
 
+.folder .inputs form {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
 .select{
     color: white;
     font-size: 25px;

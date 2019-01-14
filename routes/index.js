@@ -18,8 +18,8 @@ var config = {
 };
 var clientid = process.env.clientid
 var clientsecret = process.env.clientsecret
-var redirection = 'https://nuk-csie-contacts.herokuapp.com/loginCallback'
-//var redirection = 'http://localhost/loginCallback'
+// var redirection = 'https://nuk-csie-contacts.herokuapp.com/loginCallback'
+var redirection = 'http://localhost/loginCallback'
 firebase.initializeApp(config);
 console.log(clientid, clientsecret)
 var db = firebase.database();
@@ -236,10 +236,20 @@ router.get("/event", (req, res) => {
     stuid: req.session['stuid']
   })
 })
+// router.get("/twohand/market", (req, res) => {
+//   res.render('twohand_market', {
+//     title: '二手商場',
+//     stuid: req.session['stuid']
+//   })
+// })
 router.get("/twohand/market", (req, res) => {
-  res.render('twohand_market', {
+  res.render('twohand_market_kix', {
     title: '二手商場',
-    stuid: req.session['stuid']
+    name: req.session['name'],
+    arr:new Array,
+    pre:1,
+    next:1,
+    end:false
   })
 })
 router.get("/twohand/down", (req, res) => {
@@ -248,10 +258,20 @@ router.get("/twohand/down", (req, res) => {
     stuid: req.session['stuid']
   })
 })
+// router.get("/twohand/up", (req, res) => {
+//   res.render('twohand_up', {
+//     title: '上架商品',
+//     stuid: req.session['stuid']
+//   })
+// })
 router.get("/twohand/up", (req, res) => {
-  res.render('twohand_up', {
-    title: '上架商品',
-    stuid: req.session['stuid']
+  res.render('twohand_up_kix', {
+    title: '二手商場',
+    name: req.session['name'],
+    arr:new Array,
+    pre:1,
+    next:1,
+    end:false
   })
 })
 router.get("/twohand/buy", (req, res) => {
