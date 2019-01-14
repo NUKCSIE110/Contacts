@@ -44,30 +44,33 @@ database.on('value', function (snapshot) {
   for (var i = 0; i < count2; i++) {
     opt[i] = str4.split("*")[i];
   }
-  // for (var n of pic) {
-  //   if (pics[k] == undefined) {
-  //     k++;
-  //     continue;
-  //   }
-  //   else {
-  //     n.innerHTML = pics[k];
-  //     k++;
-  //   }
-  // }
-  // for (var l of line) {
-  //   l.textContent = str[j];
-  //   j++;
-  // }
-  for (var o in option) {
-    if (sel == opt[m]) {
-      if (pics[m] == undefined) {
+  if(sel.value == '0'){
+    for (var n of pic) {
+      if (pics[k] == undefined) {
+        k++;
         continue;
       }
       else {
-        o.innerHTML = pics[m];
-        o.textContent = str[m];
-        m++;
+        n.innerHTML = pics[k];
+        k++;
       }
     }
+    for (var l of line) {
+      l.textContent = str[j];
+      j++;
+    }
   }
+  
+  // for (var o in option) {
+  //   if (sel == opt[m]) {
+  //     if (pics[m] == undefined) {
+  //       continue;
+  //     }
+  //     else {
+  //       o.innerHTML = pics[m];
+  //       o.textContent = str[m];
+  //       m++;
+  //     }
+  //   }
+  // }
 });
