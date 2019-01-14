@@ -5,6 +5,7 @@ body {
     background-position: center;
     overflow-x: hidden;
     font-family: 'Thasadith', 'Noto Sans TC', sans-serif;
+    overflow: hidden;
 }
 
 nav {
@@ -112,4 +113,9 @@ a {
 a:hover {
     color: white;
     text-decoration: none;
+}
+
+.form-control{
+    color:white;
+    border:#6c757d;
 }
