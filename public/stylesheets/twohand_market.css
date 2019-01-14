@@ -140,3 +140,7 @@ nav div div {
 a{
     color: white;
 }
+
+.hidden{
+    display:none;
+}

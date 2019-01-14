@@ -4,7 +4,6 @@ var contact = document.querySelector(".Contact").value;
 var price = document.querySelector(".Price").value;
 var btn = document.querySelector(".Upload");
 var upphoto = document.querySelector('.UP_photo');
-console.log(btn);
 
 btn.addEventListener('click', function () {
   var name = document.querySelector(".Pname");
@@ -19,9 +18,7 @@ btn.addEventListener('click', function () {
     "option": option.value,
     "picture": upphoto.src
   };
-  console.log(push_data)
   var newData = database.push(push_data, function(){window.location.assign("http://localhost/twohand/market");})
-  console.log(newData.key())
 })
 
 $("#uploadImage").change(function () {
