@@ -16,7 +16,6 @@ class family{
         this.baseNode.style.backgroundImage=
             //'linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),'+
             `url("${getAvatar(`a${this.grade}${5500+this.id}`)}")`;
-        this.baseNode.style.backgroundSize="cover";
         this.upperNode = [];
         this.family.appendChild(this.baseNode);
         this.contain.appendChild(this.family);
@@ -31,7 +30,6 @@ class family{
         let newUpper = document.createElement('div');
         newUpper.classList.add('upperNode');
         newUpper.style.backgroundImage = `url("${getAvatar(`a${grade}${5500+this.id}`)}")`;
-        newUpper.style.backgroundSize = "cover";
         newUpper.dataset.t = getName(`a${grade}${5500+this.id}`);
         newUpper.addEventListener('click', (function(){
             window.location.href = `/profile/${this.url}`;

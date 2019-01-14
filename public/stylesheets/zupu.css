@@ -109,6 +109,8 @@ a:hover {
     align-items: center;
     overflow: hidden;
     color: white;
+    background-position: center center;
+    background-size: cover;
 }
 
 .family div:hover{
