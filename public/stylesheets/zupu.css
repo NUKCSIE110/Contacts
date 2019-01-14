@@ -1,21 +1,27 @@
+*{
+    box-sizing: border-box;
+}
+
 body {
     background: linear-gradient(rgba(0, 0, 0, .32), rgba(0, 0, 0, .32)), url('/images/cb-colour-nightsky.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    overflow-x: hidden;
-    margin:0px;
+    overflow: hidden;
+    font-family: 'Thasadith', 'Noto Sans TC', sans-serif;
+    margin:0;
 }
-nav{
+
+nav {
     margin: 10px 10px 20px 10px;
     justify-content: space-between;
     display: flex;
 }
+
 nav div div {
-    display:inline-block;
+    display: inline-block;
     padding: 20px;
-    font-family: 'SF Pro Display';
-    color:white;
+    color: white;
     font-size: 35px;
 }
 .select{
@@ -25,15 +31,23 @@ nav div div {
     justify-content: flex-end;
     margin: 0 5%;
 }
+
 .select div{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    margin-left:20px; 
+    text-align: center;
+    margin-left: 40px;
+    min-width: 6em;
     background-color:rgba(90, 90, 90, 0.75); 
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;
 }
+.logo {
+    width: 25%;
+    height: 25%;
+}
+
 a {
     color: white;
     text-decoration: none;
@@ -42,10 +56,6 @@ a {
 a:hover {
     color: white;
     text-decoration: none;
-}
-
-.Zuopu{
-    margin-top: -20px;
 }
 .logo{
     width: 25%;
@@ -71,6 +81,9 @@ a:hover {
     padding: 0 200px;
     display: flex;
     align-items: flex-end;
+}
+.container:hover{
+    cursor: pointer;
 }
 .container::before{
     content:"";

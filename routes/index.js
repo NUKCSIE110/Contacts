@@ -294,11 +294,16 @@ router.get("/attempt", (req, res) => {
 })
 
 router.get("/zupu", (req, res) =>{
-  res.render('zupu', {
-    title: '族譜',
-    stuid: req.session['stuid'],
-    name: req.session['name'],
-  })  
+  if (req.session['stuid'] != undefined) {
+    res.render('zupu', {
+      title: '祖譜',
+      stuid: req.session['stuid'],
+      name: req.session['name'],
+    })
+  }else{
+    res.redirect(302, '/login');
+    res.send();
+  }  
 })
 
 module.exports = router;
