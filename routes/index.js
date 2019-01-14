@@ -222,7 +222,7 @@ router.post('/profile/all', (req, res, next) => {
     db.ref(`/users/`).once('value', snapshot => {
       if (snapshot.exists()) {
         let data = snapshot.val()
-        res.send(200,data)
+        res.status(200).send(data)
       } else res.send(404)
     })
   } else {
