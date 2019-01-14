@@ -136,27 +136,31 @@ router.get('/profile', (req, res, next) => {
     if (page === undefined) page = 1
     else page = parseInt(page)
     if (page === 0) page = 1
-    db.ref('/users/').once('value',snapshot=>{
+    db.ref('/users/').once('value', snapshot => {
       var ifend = false
       var data = snapshot.val()
       var data_arr = new Array
       var length = Object.keys(data).length
       for (let index in data) {
-        data_arr.push({stu:index,...data[index]})
+        data_arr.push({
+          stu: index,
+          ...data[index]
+        })
       }
-      for(let i=1;i<page;i++){
-        if (data_arr.length > 8) for(let j = 0;j<8;j++) {
-           data_arr.shift()
-        }
+      for (let i = 1; i < page; i++) {
+        if (data_arr.length > 8)
+          for (let j = 0; j < 8; j++) {
+            data_arr.shift()
+          }
       }
-      if (data_arr.length <=8) ifend = true
-        res.render('profile', {
+      if (data_arr.length <= 8) ifend = true
+      res.render('profile', {
         title: '資料 - 高大資工系友交流平臺',
         name: req.session['name'],
-        arr:data_arr,
-        next:page+1,
-        pre:page-1,
-        end:ifend
+        arr: data_arr,
+        next: page + 1,
+        pre: page - 1,
+        end: ifend
       })
     })
   } else {
@@ -246,10 +250,10 @@ router.get("/twohand/market", (req, res) => {
   res.render('twohand_market_kix', {
     title: '二手商場',
     name: req.session['name'],
-    arr:new Array,
-    pre:1,
-    next:1,
-    end:false
+    arr: new Array,
+    pre: 1,
+    next: 1,
+    end: false
   })
 })
 router.get("/twohand/down", (req, res) => {
@@ -268,12 +272,31 @@ router.get("/twohand/up", (req, res) => {
   res.render('twohand_up_kix', {
     title: '二手商場',
     name: req.session['name'],
-    arr:new Array,
-    pre:1,
-    next:1,
-    end:false
+    arr: new Array,
+    pre: 1,
+    next: 1,
+    end: false
   })
 })
+
+router.post('/twohand/upload', async (req, res) => {
+  console.log(req.body)
+  imgur.uploadBase64(req.body.photo)
+    .then(function (json) {
+      var upload_obj = {
+        ...req.body,
+        photo: json.data.link
+      }
+      db.ref(`/market/${db.ref(`/users/${req.session['stuid']}/sales/`)
+        .push(upload_obj).key}`)
+        .set(upload_obj)
+        .then(() => {
+          res.redirect(303, '/twohand/market')
+          res.send()
+        })
+    })
+})
+
 router.get("/twohand/buy", (req, res) => {
   res.render('twohand_buy', {
     title: '購買商品',
@@ -293,17 +316,17 @@ router.get("/attempt", (req, res) => {
   })
 })
 
-router.get("/zupu", (req, res) =>{
+router.get("/zupu", (req, res) => {
   if (req.session['stuid'] != undefined) {
     res.render('zupu', {
       title: '祖譜',
       stuid: req.session['stuid'],
       name: req.session['name'],
     })
-  }else{
+  } else {
     res.redirect(302, '/login');
     res.send();
-  }  
+  }
 })
 
 module.exports = router;

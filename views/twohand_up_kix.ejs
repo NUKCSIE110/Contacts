@@ -19,34 +19,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
         crossorigin="anonymous">
     <link rel=stylesheet type="text/css" href="/stylesheets/twohand_up_kix.css">
+    <script src="/javascripts/twohand_up.js" defer></script>
     <title>Document</title>
 </head>
 
 <body>
     <script type="text/javascript">
-        window.onload = function () {
-            var upload_avatar = document.getElementById("upload_avatar");
-            upload_avatar.addEventListener('change', readFile, false);
-        }
-
-        function readFile() {
-            var file = this.files[0];
-            if (file.type.split('/')[0] != 'image') {
-                alert('選擇的檔案並非圖片檔！');
-                return false;
-            }
-            if (file.size / 1024 / 1024 > 10) {
-                alert('請選擇小於10M的檔案')
-                return false
-            }
-            var reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = function () {
-                document.querySelector('.imgback img').src = this.result
-                document.querySelector('#upload_avatar_base64').value = this.result.split(',')[1]
-                document.querySelector('#upload').className = 'btn btn-success btn-lg'
-            }
-        }
+        
     </script>
     <nav>
         <img src='/images/logo.png' class="logo">
@@ -72,51 +51,42 @@
         </div>
         <div class="inputs">
             <form action="./upload" method="POST">
-                <!-- <input id="upload_avatar_base64" type="hidden" name="avatar">
-                <div class="form-group">
-                    <label for="name">商品名稱</label>
-                    <input type="text" name="name" class="form-control" id="name" placeholder="請輸入商品名稱" value="">
+                <input id="photo_base64" type="hidden" name="photo">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">商品名稱</span>
+                    </div>
+                    <input type="text" name="name" class="form-control" id="basic-url" aria-describedby="basic-addon3">
                 </div>
-                <div class="form-group">
-                    <label for="price">商品價格</label>
-                    <input type="text" name="price" class="form-control" id="price" aria-describedby="emailHelp"
-                        placeholder="請輸入商品價格" value="">
-                </div> -->
-              
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span  class="input-group-text" id="basic-addon3">商品名稱</span>
-  </div>
-  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-</div>
-<div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span  class="input-group-text" id="basic-addon3">商品價格 NT$</span>
-        </div>
-        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-      </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">商品價格 NT$</span>
+                    </div>
+                    <input type="text" name="price" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                </div>
+                <input id="cata" type="hidden" name="cata">
                 <div class="dropdown">
-                    <button class="btn btn-secondary btn-lg btn-block dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-secondary btn-lg btn-block dropdown-toggle" type="button" id="dropdownMenu2"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         請選擇商品分類
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <button class="dropdown-item" type="button">1</button>
-                        <button class="dropdown-item" type="button">2</button>
-                        <button class="dropdown-item" type="button">3</button>
-                        <button class="dropdown-item" type="button">4</button>
-                        <button class="dropdown-item" type="button">5</button>
-                        <button class="dropdown-item" type="button">6</button>
-                        <button class="dropdown-item" type="button">7</button>
+                        <button id="1" class="dropdown-item" type="button">電器用品</button>
+                        <button id="2" class="dropdown-item" type="button">3C產品</button>
+                        <button id="3" class="dropdown-item" type="button">玩具玩偶</button>
+                        <button id="4" class="dropdown-item" type="button">衣服</button>
+                        <button id="5" class="dropdown-item" type="button">生活用品</button>
+                        <button id="6" class="dropdown-item" type="button">文具用品</button>
+                        <button id="7" class="dropdown-item" type="button">其他</button>
                     </div>
                 </div>
                 <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">商品簡介</span>
-                        </div>
-                        <textarea rows="8" class="form-control" aria-label="With textarea"></textarea>
-                      </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">上架</button>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">商品簡介</span>
+                    </div>
+                    <textarea rows="8" name="desc" class="form-control" aria-label="With textarea"></textarea>
+                </div>
+                <a id="upload_form" class="btn btn-primary btn-lg btn-block">上架</a>
             </form>
         </div>
     </div>
